@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Ubuntu Desktop Autostart
+Comment=Container session setup (xhost, WALLPAPER/WPLAYOUT)
+Exec=/usr/local/bin/xfce4_autostart.sh
+OnlyShowIn=XFCE;
+Terminal=false
+StartupNotify=false

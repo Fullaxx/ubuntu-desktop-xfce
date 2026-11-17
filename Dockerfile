@@ -61,7 +61,9 @@ COPY scripts/*.sh /app/scripts/
 
 # ------------------------------------------------------------------------------
 # Install xfce4 scripts and configuration files
-# COPY xfce4/* /root/.config/autostart/
+# (/etc/xdg/autostart is only for .desktop files, the scripts go on PATH)
+COPY xfce4/xfce4_autostart.sh xfce4/set_wallpaper_xfce4.sh /usr/local/bin/
+COPY xfce4/xfce4_autostart.desktop /etc/xdg/autostart/
 
 # ------------------------------------------------------------------------------
 # Expose ports
