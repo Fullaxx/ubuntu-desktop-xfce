@@ -56,7 +56,3 @@ fi
 # VNC configuration
 mkdir -p ${HOME}/.config/tigervnc
 install -m 0755 /usr/share/ubuntu-desktop/vnc/xstartup ${HOME}/.config/tigervnc/xstartup
-
-if [ ${WINDOWMANAGER} == "xfce4" ]; then
-  mkdir -p /usr/share/xfce4/backdrops
-fi
