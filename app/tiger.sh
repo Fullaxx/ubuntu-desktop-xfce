@@ -22,7 +22,7 @@ if [ -n "${USER}" ]; then
   SUDOUSEROPT="-u ${USER}"
 fi
 
-# -fg will allow the openbox exit button to bring us down
+# -fg ties the container to the X session: Log Out in xfce4 stops the container
 # using sudo here will allow 'docker stop' to bring us down quickly
 exec sudo ${SUDOUSEROPT} tigervncserver :${VNCPORT} -fg -localhost no \
 ${VNCAUTH} -geometry ${VNCRES} -depth ${VNCDEPTH} -xstartup ${VNCSTART}
