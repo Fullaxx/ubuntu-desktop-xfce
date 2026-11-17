@@ -3,13 +3,10 @@
 ## Base Docker Image
 [Ubuntu](https://hub.docker.com/_/ubuntu) (x64)
 
-## Get the image from Docker Hub
+## Get the image or build it locally
 ```
 docker pull ghcr.io/fullaxx/ubuntu-desktop-xfce
-```
 
-## Build it locally using the github repository
-```
 docker build -t="ghcr.io/fullaxx/ubuntu-desktop-xfce" github.com/Fullaxx/ubuntu-desktop-xfce
 ```
 
