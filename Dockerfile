@@ -14,11 +14,14 @@ ENV LOCALE="en_US"
 # Install tigervnc,xfce4 and clean up
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
+      adwaita-icon-theme-legacy \
       bzip2 \
       ca-certificates \
       curl \
       dbus \
       dbus-x11 \
+      elementary-xfce-icon-theme \
+      greybird-gtk-theme \
       less \
       libasound2t64 \
       libgtk2.0-0t64 \
