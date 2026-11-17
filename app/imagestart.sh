@@ -45,9 +45,12 @@ fi
 
 # $HOME should always be set at this point
 # Set umask in all future bash shell instances
+# (only append it once: the container may be restarted and $HOME may persist)
 if [ -n "${VNCUMASK}" ]; then
-  echo >> ${HOME}/.bashrc
-  echo "umask ${VNCUMASK}" >> ${HOME}/.bashrc
+  if ! grep -qx "umask ${VNCUMASK}" ${HOME}/.bashrc 2>/dev/null; then
+    echo >> ${HOME}/.bashrc
+    echo "umask ${VNCUMASK}" >> ${HOME}/.bashrc
+  fi
 fi
 
 # VNC configuration
