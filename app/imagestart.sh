@@ -57,10 +57,6 @@ fi
 mkdir -p ${HOME}/.config/tigervnc
 install -m 0755 /usr/share/ubuntu-desktop/vnc/xstartup ${HOME}/.config/tigervnc/xstartup
 
-if [ ! -f ${HOME}/.gtkrc-2.0 ]; then
-  echo 'gtk-icon-theme-name = "gnome"' >${HOME}/.gtkrc-2.0
-fi
-
 if [ ${WINDOWMANAGER} == "xfce4" ]; then
   mkdir -p /usr/share/xfce4/backdrops
 fi
