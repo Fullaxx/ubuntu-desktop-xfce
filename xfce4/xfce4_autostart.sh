@@ -4,7 +4,9 @@
 # (VNCUMASK is applied to the whole session in xstartup)
 
 # https://github.com/jessfraz/dockerfiles/issues/4
-xhost local:root
+# Allow root (sudo, docker exec) to use this display.
+# si:localuser:root admits only root; the old "local:root" admitted every local user.
+xhost +si:localuser:root
 
 # if WALLPAPER/WPLAYOUT were set at docker cmdline
 if [ -n "${WALLPAPER}" ]; then
