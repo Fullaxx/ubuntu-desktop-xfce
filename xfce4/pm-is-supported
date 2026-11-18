@@ -1,0 +1,7 @@
+#!/bin/sh
+# Stub for pm-utils' pm-is-supported (pm-utils is not installed).
+# xfce4-session runs "pm-is-supported --<mode>" to decide whether suspend and
+# hibernate are offered. They never work in a container, so always answer
+# "not supported" (exit 1). Without this stub, every login and logout logs
+# "Failed to execute child process".
+exit 1

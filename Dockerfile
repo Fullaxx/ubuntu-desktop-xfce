@@ -71,6 +71,9 @@ COPY xfce4/xfce4_autostart.sh xfce4/set_wallpaper_xfce4.sh /usr/local/bin/
 COPY xfce4/xfce4_autostart.desktop /etc/xdg/autostart/
 # System-wide default backdrop (user settings and WALLPAPER override it)
 COPY xfce4/xfce4-desktop.xml /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/
+# Stub pm-is-supported (pm-utils is not installed) so xfce4-session stops
+# logging a failed check at every login and logout
+COPY xfce4/pm-is-supported /usr/bin/
 
 # ------------------------------------------------------------------------------
 # Expose ports
