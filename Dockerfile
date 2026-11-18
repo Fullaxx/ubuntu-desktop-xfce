@@ -48,10 +48,8 @@ RUN apt-get update && \
 
 # ------------------------------------------------------------------------------
 # Configure locale
-# (LANG goes in /etc/default/locale, which pam_env reads for the sudo'd VNC session;
-#  Ubuntu ignores /etc/locale.conf)
 RUN echo "LC_ALL=${LOCALE}.UTF-8" >> /etc/environment && \
-    echo "LANG=${LOCALE}.UTF-8" > /etc/default/locale && \
+    echo "LANG=${LOCALE}.UTF-8" > /etc/locale.conf && \
     echo "${LOCALE}.UTF-8 UTF-8" >> /etc/locale.gen && \
     locale-gen
 
