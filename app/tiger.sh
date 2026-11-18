@@ -1,4 +1,5 @@
 #!/bin/bash
+# This script runs as root
 
 VNCDIR="${HOME}/.config/tigervnc"
 VNCAUTH="-SecurityTypes=None --I-KNOW-THIS-IS-INSECURE"
