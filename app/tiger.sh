@@ -27,7 +27,9 @@ if [ -n "${USER}" ]; then
   SUDOUSEROPT="-u ${USER}"
 fi
 
-# -fg ties the container to the X session: Log Out in xfce4 stops the container
+# -fg keeps tigervncserver in the foreground until the desktop session ends
+# (without it, tigervncserver returns once the server is up, and the container stops)
+# so ending the desktop session (log out / exit) will bring us down
 # using sudo here will allow 'docker stop' to bring us down quickly
 exec sudo ${SUDOUSEROPT} tigervncserver :${VNCPORT} -fg -localhost no \
 ${VNCAUTH} -geometry ${VNCRES} -depth ${VNCDEPTH} -xstartup ${VNCSTART}
