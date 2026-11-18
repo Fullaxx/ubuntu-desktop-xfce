@@ -1,6 +1,7 @@
 #!/bin/bash
 # This script runs as root
 
+# Ubuntu 26.04's TigerVNC (1.15) uses ~/.config/tigervnc for xstartup, passwd and the session log
 VNCDIR="${HOME}/.config/tigervnc"
 VNCAUTH="-SecurityTypes=None --I-KNOW-THIS-IS-INSECURE"
 VNCRES=${VNCRES:-1280x800}
