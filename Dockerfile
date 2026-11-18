@@ -11,7 +11,7 @@ ENV WINDOWMANAGER="xfce4"
 ENV LOCALE="en_US"
 
 # ------------------------------------------------------------------------------
-# Install tigervnc,xfce4 and clean up
+# Install tigervnc,xfce4,apps and clean up
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
       adwaita-icon-theme-legacy \
@@ -22,6 +22,8 @@ RUN apt-get update && \
       dbus-x11 \
       elementary-xfce-icon-theme \
       greybird-gtk-theme \
+      gtk2-engines-pixbuf \
+      gvfs \
       less \
       libasound2t64 \
       libgtk2.0-0t64 \
@@ -31,6 +33,7 @@ RUN apt-get update && \
       tigervnc-common \
       tigervnc-standalone-server \
       tigervnc-tools \
+      tumbler \
       tzdata \
       wget \
       x11-utils \
