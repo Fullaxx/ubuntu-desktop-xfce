@@ -61,7 +61,7 @@ RUN sed -e 's/saveLines: 1024/saveLines: 8192/' -i /etc/X11/app-defaults/XTerm
 
 # ------------------------------------------------------------------------------
 # Install scripts and configuration files
-COPY app/app.sh app/imagestart.sh app/tiger.sh /app/
+COPY app/*.sh /app/
 COPY conf/xstartup /usr/share/ubuntu-desktop/vnc/
 COPY conf/sudo /usr/share/ubuntu-desktop/sudo
 COPY conf/bash.colors conf/color_prompt.sh /opt/bash/

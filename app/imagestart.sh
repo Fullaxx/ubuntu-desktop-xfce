@@ -3,11 +3,6 @@
 # sudo configuration for ubuntu-desktop
 install -m 0440 /usr/share/ubuntu-desktop/sudo /etc/sudoers.d/ubuntudesktop
 
-# Delete old temp files in case the images was restarted
-# test case: docker restart ubuntu-desktop
-rm -f /tmp/.X*-lock
-rm -f /tmp/.X11-unix/*
-
 # Necessary for many applications
 # (i.e. Chrome, terminator, ktorrent, ...)
 /etc/init.d/x11-common start
