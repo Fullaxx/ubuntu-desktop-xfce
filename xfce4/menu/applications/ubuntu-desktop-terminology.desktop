@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Terminals (see ubuntu-desktop.menu)
+# /app/scripts/terminology.sh installs Terminology on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=Terminology
+Comment=Installs Terminology on first use if needed, then starts it
+Exec=/app/scripts/terminology.sh
+Icon=utilities-terminal
+Terminal=false
+Categories=X-UbuntuDesktop-Terminals;
