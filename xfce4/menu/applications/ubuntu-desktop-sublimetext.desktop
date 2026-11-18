@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Editors (see ubuntu-desktop.menu)
+# /app/scripts/sublimetext.sh installs Sublime Text on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=Sublime Text
+Comment=Installs Sublime Text on first use if needed, then starts it
+Exec=/app/scripts/sublimetext.sh
+Icon=accessories-text-editor
+Terminal=false
+Categories=X-UbuntuDesktop-Editors;

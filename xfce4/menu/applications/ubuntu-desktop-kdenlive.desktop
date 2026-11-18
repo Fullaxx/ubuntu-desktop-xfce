@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > AV (see ubuntu-desktop.menu)
+# /app/scripts/kdenlive.sh installs Kdenlive on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=Kdenlive
+Comment=Installs Kdenlive on first use if needed, then starts it
+Exec=/app/scripts/kdenlive.sh
+Icon=video-x-generic
+Terminal=false
+Categories=X-UbuntuDesktop-AV;

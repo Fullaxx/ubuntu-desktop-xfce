@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Graphics (see ubuntu-desktop.menu)
+# /app/scripts/blender.sh installs Blender on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=Blender
+Comment=Installs Blender on first use if needed, then starts it
+Exec=/app/scripts/blender.sh
+Icon=applications-graphics
+Terminal=false
+Categories=X-UbuntuDesktop-Graphics;

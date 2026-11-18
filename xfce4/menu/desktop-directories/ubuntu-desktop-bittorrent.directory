@@ -1,0 +1,5 @@
+# Applications > Ubuntu Desktop > Network > BitTorrent: the submenu's name and icon (see ubuntu-desktop.menu)
+[Desktop Entry]
+Type=Directory
+Name=BitTorrent
+Icon=network-transmit-receive

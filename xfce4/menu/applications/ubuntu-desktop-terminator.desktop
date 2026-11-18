@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Terminals (see ubuntu-desktop.menu)
+# /app/scripts/terminator.sh installs Terminator on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=Terminator
+Comment=Installs Terminator on first use if needed, then starts it
+Exec=/app/scripts/terminator.sh
+Icon=utilities-terminal
+Terminal=false
+Categories=X-UbuntuDesktop-Terminals;

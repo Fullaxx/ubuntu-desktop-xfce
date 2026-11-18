@@ -1,0 +1,5 @@
+# Applications > Ubuntu Desktop > Rev Eng: the submenu's name and icon (see ubuntu-desktop.menu)
+[Desktop Entry]
+Type=Directory
+Name=Rev Eng
+Icon=applications-engineering

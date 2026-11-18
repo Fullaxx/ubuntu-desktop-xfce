@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Network > Browsers (see ubuntu-desktop.menu)
+# /app/scripts/torbrowser.sh installs Tor Browser on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=Tor Browser
+Comment=Installs Tor Browser on first use if needed, then starts it
+Exec=/app/scripts/torbrowser.sh
+Icon=web-browser
+Terminal=false
+Categories=X-UbuntuDesktop-Browsers;

@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Music (see ubuntu-desktop.menu)
+# /app/scripts/strawberry.sh installs Strawberry on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=Strawberry
+Comment=Installs Strawberry on first use if needed, then starts it
+Exec=/app/scripts/strawberry.sh
+Icon=audio-x-generic
+Terminal=false
+Categories=X-UbuntuDesktop-Music;

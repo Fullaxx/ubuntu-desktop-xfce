@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Terminals (see ubuntu-desktop.menu)
+# /app/scripts/tilix.sh installs Tilix on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=Tilix
+Comment=Installs Tilix on first use if needed, then starts it
+Exec=/app/scripts/tilix.sh
+Icon=utilities-terminal
+Terminal=false
+Categories=X-UbuntuDesktop-Terminals;

@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Editors (see ubuntu-desktop.menu)
+# /app/scripts/gvim.sh installs GVim on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=GVim
+Comment=Installs GVim on first use if needed, then starts it
+Exec=/app/scripts/gvim.sh
+Icon=accessories-text-editor
+Terminal=false
+Categories=X-UbuntuDesktop-Editors;

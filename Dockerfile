@@ -77,6 +77,11 @@ COPY xfce4/xfce4-desktop.xml /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/
 # Stub pm-is-supported (pm-utils is not installed) so xfce4-session stops
 # logging a failed check at every login and logout
 COPY xfce4/pm-is-supported /usr/bin/
+# Applications > Ubuntu Desktop: menu entries for a set of the launcher scripts in /app/scripts
+# (one .desktop file per entry: delete a file from xfce4/menu/applications to drop its entry)
+COPY xfce4/menu/ubuntu-desktop.menu /etc/xdg/menus/applications-merged/
+COPY xfce4/menu/desktop-directories/ /usr/local/share/desktop-directories/
+COPY xfce4/menu/applications/ /usr/local/share/applications/
 
 # ------------------------------------------------------------------------------
 # Expose ports

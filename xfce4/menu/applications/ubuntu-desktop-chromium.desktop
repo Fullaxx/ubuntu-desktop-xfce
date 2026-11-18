@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Network > Browsers (see ubuntu-desktop.menu)
+# /app/scripts/chromium.sh installs Chromium on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=Chromium
+Comment=Installs Chromium on first use if needed, then starts it
+Exec=/app/scripts/chromium.sh
+Icon=web-browser
+Terminal=false
+Categories=X-UbuntuDesktop-Browsers;

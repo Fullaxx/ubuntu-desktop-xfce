@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Editors (see ubuntu-desktop.menu)
+# /app/scripts/gedit.sh installs gedit on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=gedit
+Comment=Installs gedit on first use if needed, then starts it
+Exec=/app/scripts/gedit.sh
+Icon=accessories-text-editor
+Terminal=false
+Categories=X-UbuntuDesktop-Editors;

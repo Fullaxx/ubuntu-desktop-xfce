@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Network > Browsers (see ubuntu-desktop.menu)
+# /app/scripts/firefox.sh installs Firefox on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=Firefox
+Comment=Installs Firefox on first use if needed, then starts it
+Exec=/app/scripts/firefox.sh
+Icon=web-browser
+Terminal=false
+Categories=X-UbuntuDesktop-Browsers;

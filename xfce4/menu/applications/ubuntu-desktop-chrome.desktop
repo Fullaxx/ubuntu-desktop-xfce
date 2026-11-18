@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Network > Browsers (see ubuntu-desktop.menu)
+# /app/scripts/chrome.sh installs Google Chrome on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=Google Chrome
+Comment=Installs Google Chrome on first use if needed, then starts it
+Exec=/app/scripts/chrome.sh
+Icon=web-browser
+Terminal=false
+Categories=X-UbuntuDesktop-Browsers;

@@ -203,3 +203,13 @@ For web access, check out [noVNC](https://hub.docker.com/r/fullaxx/novnc) to acc
 ```
 vncviewer 127.0.0.1:5901
 ```
+
+## Using the Xfce Desktop Environment
+Open Applications > Ubuntu Desktop (the panel menu at the top left, or right-click the desktop) to start popular applications. \
+Each entry runs one of the convenience scripts in /app/scripts, which installs its application the first time (in xterm windows), then starts it.
+
+Many more convenience scripts are available (see the list in [ubuntu-desktop](https://github.com/Fullaxx/ubuntu-desktop#using-the-openbox-desktop-environment)), though some don't support Ubuntu 26.04 yet. \
+Run any of them from a terminal inside the desktop
+```
+/app/scripts/doublecmd.sh
+```

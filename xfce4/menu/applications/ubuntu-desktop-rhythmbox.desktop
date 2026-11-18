@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Music (see ubuntu-desktop.menu)
+# /app/scripts/rhythmbox.sh installs Rhythmbox on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=Rhythmbox
+Comment=Installs Rhythmbox on first use if needed, then starts it
+Exec=/app/scripts/rhythmbox.sh
+Icon=audio-x-generic
+Terminal=false
+Categories=X-UbuntuDesktop-Music;

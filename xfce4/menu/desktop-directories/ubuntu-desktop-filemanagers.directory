@@ -1,0 +1,5 @@
+# Applications > Ubuntu Desktop > File Managers: the submenu's name and icon (see ubuntu-desktop.menu)
+[Desktop Entry]
+Type=Directory
+Name=File Managers
+Icon=system-file-manager

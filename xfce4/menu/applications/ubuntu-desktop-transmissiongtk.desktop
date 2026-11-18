@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Network > BitTorrent (see ubuntu-desktop.menu)
+# /app/scripts/transmissiongtk.sh installs Transmission on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=Transmission
+Comment=Installs Transmission on first use if needed, then starts it
+Exec=/app/scripts/transmissiongtk.sh
+Icon=network-transmit-receive
+Terminal=false
+Categories=X-UbuntuDesktop-BitTorrent;

@@ -1,0 +1,6 @@
+# Applications > Ubuntu Desktop: the submenu's name and icon (see ubuntu-desktop.menu)
+[Desktop Entry]
+Type=Directory
+Name=Ubuntu Desktop
+Comment=Launcher scripts from /app/scripts: each installs its app on first use, then starts it
+Icon=system-software-install

@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Network > Browsers (see ubuntu-desktop.menu)
+# /app/scripts/vivaldi.sh installs Vivaldi on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=Vivaldi
+Comment=Installs Vivaldi on first use if needed, then starts it
+Exec=/app/scripts/vivaldi.sh
+Icon=web-browser
+Terminal=false
+Categories=X-UbuntuDesktop-Browsers;

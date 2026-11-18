@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Graphics (see ubuntu-desktop.menu)
+# /app/scripts/inkscape.sh installs Inkscape on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=Inkscape
+Comment=Installs Inkscape on first use if needed, then starts it
+Exec=/app/scripts/inkscape.sh
+Icon=applications-graphics
+Terminal=false
+Categories=X-UbuntuDesktop-Graphics;

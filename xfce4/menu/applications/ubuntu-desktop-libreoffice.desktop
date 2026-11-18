@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Office (see ubuntu-desktop.menu)
+# /app/scripts/libreoffice.sh installs LibreOffice on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=LibreOffice
+Comment=Installs LibreOffice on first use if needed, then starts it
+Exec=/app/scripts/libreoffice.sh
+Icon=applications-office
+Terminal=false
+Categories=X-UbuntuDesktop-Office;

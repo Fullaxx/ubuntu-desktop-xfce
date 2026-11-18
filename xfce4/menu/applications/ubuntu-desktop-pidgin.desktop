@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Network > Chat (see ubuntu-desktop.menu)
+# /app/scripts/pidgin.sh installs Pidgin on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=Pidgin
+Comment=Installs Pidgin on first use if needed, then starts it
+Exec=/app/scripts/pidgin.sh
+Icon=im-message-new
+Terminal=false
+Categories=X-UbuntuDesktop-Chat;

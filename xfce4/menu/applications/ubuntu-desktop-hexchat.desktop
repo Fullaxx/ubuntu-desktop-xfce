@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Network > Chat (see ubuntu-desktop.menu)
+# /app/scripts/hexchat.sh installs HexChat on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=HexChat
+Comment=Installs HexChat on first use if needed, then starts it
+Exec=/app/scripts/hexchat.sh
+Icon=im-message-new
+Terminal=false
+Categories=X-UbuntuDesktop-Chat;

@@ -1,0 +1,143 @@
+<!DOCTYPE Menu PUBLIC "-//freedesktop//DTD Menu 1.0//EN"
+  "http://www.freedesktop.org/standards/menu-spec/1.0/menu.dtd">
+
+<!--
+  Applications > Ubuntu Desktop: menu entries for a set of the launcher scripts in /app/scripts.
+  Each script installs its app on first use (xterm windows), then starts it.
+
+  This file goes to /etc/xdg/menus/applications-merged/, which Xfce's own menu merges in
+  (<DefaultMergeDirs/> in /etc/xdg/menus/xfce-applications.menu), so no system file is edited.
+  - Entries: /usr/local/share/applications/ubuntu-desktop-*.desktop (xfce4/menu/applications/),
+    one file per entry: delete a file to drop its entry, add one to add an entry.
+    Each entry has only a custom X-UbuntuDesktop-* category, so it shows up here
+    and not also in Xfce's own categories or in Other.
+  - Category names and icons: /usr/local/share/desktop-directories/ubuntu-desktop*.directory
+  - The categories follow ubuntu-desktop's Openbox menu (conf/menu.xml), in its order.
+    Entries are sorted by name, and a category without entries is not shown.
+-->
+<Menu>
+  <Name>Xfce</Name>
+
+  <Menu>
+    <Name>ubuntu-desktop</Name>
+    <Directory>ubuntu-desktop.directory</Directory>
+    <!-- Upstream's category order instead of alphabetical -->
+    <Layout>
+      <Menuname>terminals</Menuname>
+      <Menuname>office</Menuname>
+      <Menuname>editors</Menuname>
+      <Menuname>network</Menuname>
+      <Menuname>filemanagers</Menuname>
+      <Menuname>games</Menuname>
+      <Menuname>music</Menuname>
+      <Menuname>graphics</Menuname>
+      <Menuname>av</Menuname>
+      <Menuname>utilities</Menuname>
+      <Menuname>reveng</Menuname>
+      <Menuname>misc</Menuname>
+      <Merge type="all"/>
+    </Layout>
+
+    <Menu>
+      <Name>terminals</Name>
+      <Directory>ubuntu-desktop-terminals.directory</Directory>
+      <Include><Category>X-UbuntuDesktop-Terminals</Category></Include>
+    </Menu>
+
+    <Menu>
+      <Name>office</Name>
+      <Directory>ubuntu-desktop-office.directory</Directory>
+      <Include><Category>X-UbuntuDesktop-Office</Category></Include>
+    </Menu>
+
+    <Menu>
+      <Name>editors</Name>
+      <Directory>ubuntu-desktop-editors.directory</Directory>
+      <Include><Category>X-UbuntuDesktop-Editors</Category></Include>
+    </Menu>
+
+    <Menu>
+      <Name>network</Name>
+      <Directory>ubuntu-desktop-network.directory</Directory>
+      <Layout>
+        <Menuname>browsers</Menuname>
+        <Menuname>bittorrent</Menuname>
+        <Menuname>chat</Menuname>
+        <Menuname>networktools</Menuname>
+        <Merge type="all"/>
+      </Layout>
+
+      <Menu>
+        <Name>browsers</Name>
+        <Directory>ubuntu-desktop-browsers.directory</Directory>
+        <Include><Category>X-UbuntuDesktop-Browsers</Category></Include>
+      </Menu>
+
+      <Menu>
+        <Name>bittorrent</Name>
+        <Directory>ubuntu-desktop-bittorrent.directory</Directory>
+        <Include><Category>X-UbuntuDesktop-BitTorrent</Category></Include>
+      </Menu>
+
+      <Menu>
+        <Name>chat</Name>
+        <Directory>ubuntu-desktop-chat.directory</Directory>
+        <Include><Category>X-UbuntuDesktop-Chat</Category></Include>
+      </Menu>
+
+      <Menu>
+        <Name>networktools</Name>
+        <Directory>ubuntu-desktop-networktools.directory</Directory>
+        <Include><Category>X-UbuntuDesktop-NetworkTools</Category></Include>
+      </Menu>
+    </Menu>
+
+    <Menu>
+      <Name>filemanagers</Name>
+      <Directory>ubuntu-desktop-filemanagers.directory</Directory>
+      <Include><Category>X-UbuntuDesktop-FileManagers</Category></Include>
+    </Menu>
+
+    <Menu>
+      <Name>games</Name>
+      <Directory>ubuntu-desktop-games.directory</Directory>
+      <Include><Category>X-UbuntuDesktop-Games</Category></Include>
+    </Menu>
+
+    <Menu>
+      <Name>music</Name>
+      <Directory>ubuntu-desktop-music.directory</Directory>
+      <Include><Category>X-UbuntuDesktop-Music</Category></Include>
+    </Menu>
+
+    <Menu>
+      <Name>graphics</Name>
+      <Directory>ubuntu-desktop-graphics.directory</Directory>
+      <Include><Category>X-UbuntuDesktop-Graphics</Category></Include>
+    </Menu>
+
+    <Menu>
+      <Name>av</Name>
+      <Directory>ubuntu-desktop-av.directory</Directory>
+      <Include><Category>X-UbuntuDesktop-AV</Category></Include>
+    </Menu>
+
+    <Menu>
+      <Name>utilities</Name>
+      <Directory>ubuntu-desktop-utilities.directory</Directory>
+      <Include><Category>X-UbuntuDesktop-Utilities</Category></Include>
+    </Menu>
+
+    <Menu>
+      <Name>reveng</Name>
+      <Directory>ubuntu-desktop-reveng.directory</Directory>
+      <Include><Category>X-UbuntuDesktop-RevEng</Category></Include>
+    </Menu>
+
+    <Menu>
+      <Name>misc</Name>
+      <Directory>ubuntu-desktop-misc.directory</Directory>
+      <Include><Category>X-UbuntuDesktop-Misc</Category></Include>
+    </Menu>
+  </Menu>
+</Menu>

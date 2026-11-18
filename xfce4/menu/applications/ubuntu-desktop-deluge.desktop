@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Network > BitTorrent (see ubuntu-desktop.menu)
+# /app/scripts/deluge.sh installs Deluge on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=Deluge
+Comment=Installs Deluge on first use if needed, then starts it
+Exec=/app/scripts/deluge.sh
+Icon=network-transmit-receive
+Terminal=false
+Categories=X-UbuntuDesktop-BitTorrent;

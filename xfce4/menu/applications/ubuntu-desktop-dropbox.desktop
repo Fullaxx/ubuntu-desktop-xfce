@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Misc (see ubuntu-desktop.menu)
+# /app/scripts/dropbox.sh installs Dropbox on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=Dropbox
+Comment=Installs Dropbox on first use if needed, then starts it
+Exec=/app/scripts/dropbox.sh
+Icon=applications-other
+Terminal=false
+Categories=X-UbuntuDesktop-Misc;

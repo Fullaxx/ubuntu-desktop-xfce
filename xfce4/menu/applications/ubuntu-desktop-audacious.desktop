@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Music (see ubuntu-desktop.menu)
+# /app/scripts/audacious.sh installs Audacious on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=Audacious
+Comment=Installs Audacious on first use if needed, then starts it
+Exec=/app/scripts/audacious.sh
+Icon=audio-x-generic
+Terminal=false
+Categories=X-UbuntuDesktop-Music;

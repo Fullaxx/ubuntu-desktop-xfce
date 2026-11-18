@@ -1,0 +1,5 @@
+# Applications > Ubuntu Desktop > Editors: the submenu's name and icon (see ubuntu-desktop.menu)
+[Desktop Entry]
+Type=Directory
+Name=Editors
+Icon=accessories-text-editor

@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Editors (see ubuntu-desktop.menu)
+# /app/scripts/geany.sh installs Geany on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=Geany
+Comment=Installs Geany on first use if needed, then starts it
+Exec=/app/scripts/geany.sh
+Icon=accessories-text-editor
+Terminal=false
+Categories=X-UbuntuDesktop-Editors;

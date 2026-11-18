@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Games (see ubuntu-desktop.menu)
+# /app/scripts/steam.sh installs Steam on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=Steam
+Comment=Installs Steam on first use if needed, then starts it
+Exec=/app/scripts/steam.sh
+Icon=applications-games
+Terminal=false
+Categories=X-UbuntuDesktop-Games;
