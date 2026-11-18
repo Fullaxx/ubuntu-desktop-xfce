@@ -6,40 +6,65 @@
 #
 # Without VNCUSER/VNCUID the desktop runs as root (HOME=/root).
 #
-# With VNCUSER and VNCUID set, a non-root account is created:
-#   VNCUSER   account name (required)
-#   VNCUID    account UID (required)
+# Variables:
+#   VNCUSER   account name (required for a non-root desktop)
+#   VNCUID    account UID (required for a non-root desktop)
 #   VNCGROUP  primary group name (default: VNCUSER)
 #   VNCGID    primary group GID (default: VNCUID)
 #   ACCTPASS  optional password for the account (otherwise it stays locked)
-# If VNCGROUP already exists its GID is used; if VNCGID already belongs to
-# another group, that group is used. The account joins the sudo group
-# (NOPASSWD rules in conf/sudo). USER, GROUP and HOME are exported for tiger.sh.
+#   VNCUMASK  optional umask, appended once to ~/.bashrc (root or the account)
 #
-# For root or the account, VNCUMASK (optional) is appended once to ~/.bashrc.
+# Why there are two paths:
+# These scripts were written for ubuntu:22.04, which had no default user.
+# Ubuntu 24.04 and later images ship a user named "ubuntu" (UID/GID 1000),
+# and the old example VNCUSER=guest VNCUID=1000 collided with it.
+# Accounts are never renamed or deleted, so a VNCUSER either exists or is created:
 #
-# Known issue: this was written for ubuntu:22.04, which had no default user.
-# Ubuntu 24.04+ images ship "ubuntu" (UID/GID 1000), so groupadd/useradd fail
-# for it: VNCUSER=ubuntu silently reuses that account whatever VNCUID says,
-# and another name with VNCUID=1000 can't be created (HOME ends up empty and
-# the container exits). Also, the VNCGID check only finds groups without members.
+# 1) VNCUSER already exists: the built-in "ubuntu", or the account that a
+#    previous start of this container created (docker restart).
+#    It is used as is, and VNCUID (and VNCGROUP/VNCGID) must match it,
+#    e.g. VNCUSER=ubuntu VNCUID=1000. A mismatch stops the container.
+#
+# 2) Any other VNCUSER: a new account is created.
+#    VNCUID must be free and above 1000, e.g. VNCUSER=guest VNCUID=1001.
+#    Its primary group is VNCGROUP if that exists (keeping its GID), else the
+#    group that already has VNCGID, else a new group VNCGROUP/VNCGID.
+#    It joins sudo (NOPASSWD rules in conf/sudo), audio (--device /dev/snd)
+#    and video (/dev/dri), like the built-in "ubuntu" account.
+#
+# Errors print the reason (see docker logs) and stop the container (exit 1).
+#
+# For a non-root account, USER, GROUP and HOME are exported for tiger.sh.
 
 if [ -n "${VNCUSER}" ] && [ -n "${VNCUID}" ]; then
 # if VNCGROUP/VNCGID is unset, set it to VNCUSER/VNCUID
   VNCGROUP=${VNCGROUP:-$VNCUSER}
   VNCGID=${VNCGID:-$VNCUID}
 # If the GROUP already exists, use the existing GID (Thanks to elisionducoeur)
-  if grep -q "^${VNCGROUP}:x:" /etc/group; then
-    VNCGID=`grep "^${VNCGROUP}:x:" /etc/group | cut -d: -f3`
+  if getent group "${VNCGROUP}" >/dev/null; then
+    VNCGID=$(getent group "${VNCGROUP}" | cut -d: -f3)
+# If the GID exists, but the GROUP is incorrect, use the existing GROUP
+  elif getent group "${VNCGID}" >/dev/null; then
+    VNCGROUP=$(getent group "${VNCGID}" | cut -d: -f1)
   fi
-# If the GID exists, but the GROUP is incorrect
-  if grep -q ":x:${VNCGID}:$" /etc/group; then
-    if ! grep -q "^${VNCGROUP}:x:${VNCGID}:$" /etc/group; then
-      VNCGROUP=`grep ":x:${VNCGID}:$" /etc/group | cut -d: -f1`
+
+  if getent passwd "${VNCUSER}" >/dev/null; then
+# 1) Use the existing account as is: the variables must match it
+    if [ "$(id -u "${VNCUSER}")" != "${VNCUID}" ] || [ "$(id -g "${VNCUSER}")" != "${VNCGID}" ]; then
+      echo "ERROR: ${VNCUSER} already exists as $(id -u "${VNCUSER}"):$(id -gn "${VNCUSER}")($(id -g "${VNCUSER}"))," >&2
+      echo "ERROR: but VNCUID/VNCGROUP/VNCGID ask for ${VNCUID}:${VNCGROUP}(${VNCGID})" >&2
+      exit 1
     fi
+  else
+# 2) Create a new account with a free UID above 1000
+    if [ "${VNCUID}" -le 1000 ] || getent passwd "${VNCUID}" >/dev/null; then
+      echo "ERROR: VNCUID=${VNCUID} can't be used for a new account (${VNCUSER})," >&2
+      echo "ERROR: choose a free VNCUID above 1000, or use VNCUSER=ubuntu VNCUID=1000" >&2
+      exit 1
+    fi
+    getent group "${VNCGROUP}" >/dev/null || groupadd -g "${VNCGID}" "${VNCGROUP}" || exit 1
+    useradd -u "${VNCUID}" -g "${VNCGID}" -G sudo,audio,video -s /bin/bash -m -d "/home/${VNCUSER}" "${VNCUSER}" || exit 1
   fi
-  groupadd -g ${VNCGID} ${VNCGROUP}
-  useradd -u ${VNCUID} -g ${VNCGID} -G sudo -s /bin/bash -m -d /home/${VNCUSER} ${VNCUSER}
 
   export USER="${VNCUSER}"
   export GROUP="${VNCGROUP}"
@@ -50,7 +75,8 @@ if [ -n "${VNCUSER}" ] && [ -n "${VNCUID}" ]; then
 fi
 
 if [ -n "${USER}" ]; then
-  export HOME=`getent passwd ${USER} | cut -d: -f6`
+  HOME=$(getent passwd "${USER}" | cut -d: -f6)
+  export HOME
 fi
 
 # $HOME should always be set at this point

@@ -36,10 +36,10 @@ Default: No Authentication
 ```
 -e VNCPASS='vncpass' -e VNCPASSRO='readonly'
 ```
-Optional: Run as a new non-root user \
+Optional: Run as a non-root user (see [Non-root users](#non-root-users)) \
 Default: root (UID: 0)
 ```
--e VNCUSER='guest' -e VNCUID='1000'
+-e VNCUSER='guest' -e VNCUID='1001'
 ```
 Optional: If you want your non-root user to be part of the users group \
 Default: same as VNCUSER and VNCUID \
@@ -51,7 +51,7 @@ Optional: Define a new group for non-root user \
 Default: same as VNCUSER and VNCUID \
 Pre-Req: VNCUSER and VNCUID must be set
 ```
--e VNCGROUP='guests' -e VNCGID='1001'
+-e VNCGROUP='guests' -e VNCGID='1002'
 ```
 Optional: Set a password for the VNCUSER account \
 Default: none and the account is locked \
@@ -64,6 +64,24 @@ Default: 0022 for root, 0002 for a non-root VNCUSER whose group has the same nam
 ```
 -e VNCUMASK='0002'
 ```
+
+## Non-root users
+Ubuntu 24.04 and later images (this one is 26.04) already contain a user named `ubuntu` with UID and GID 1000.
+The startup scripts were written for Ubuntu 22.04, which had no such user, so the old example
+`-e VNCUSER='guest' -e VNCUID='1000'` collided with it and the container exited.
+There are now two distinct ways to run as a non-root user.
+
+Use the built-in `ubuntu` account as is \
+VNCUID (and VNCGROUP/VNCGID, if set) must match it
+```
+-e VNCUSER='ubuntu' -e VNCUID='1000'
+```
+Create your own account with any other name and a free UID greater than 1000 \
+It joins the sudo, audio and video groups, like the built-in account
+```
+-e VNCUSER='guest' -e VNCUID='1001'
+```
+Anything else, such as `-e VNCUSER='guest' -e VNCUID='1000'`, stops the container, and `docker logs` explains why.
 
 ## TimeZone Configuration
 Set the timezone to be used inside the container \
@@ -152,11 +170,11 @@ docker run -d -p 127.0.0.1:5901:5901 -e VNCPASS='vncpass' -e VNCPASSRO='readonly
 ```
 Run the image as a non-root user account
 ```
-docker run -d -p 127.0.0.1:5901:5901 -e VNCUSER='guest' -e VNCUID='1000' ghcr.io/fullaxx/ubuntu-desktop-xfce
+docker run -d -p 127.0.0.1:5901:5901 -e VNCUSER='guest' -e VNCUID='1001' ghcr.io/fullaxx/ubuntu-desktop-xfce
 ```
 Run the image as a non-root user account with custom group
 ```
-docker run -d -p 127.0.0.1:5901:5901 -e VNCUSER='guest' -e VNCUID='1000' -e VNCGROUP='guests' -e VNCGID='1001' ghcr.io/fullaxx/ubuntu-desktop-xfce
+docker run -d -p 127.0.0.1:5901:5901 -e VNCUSER='guest' -e VNCUID='1001' -e VNCGROUP='guests' -e VNCGID='1002' ghcr.io/fullaxx/ubuntu-desktop-xfce
 ```
 Run the image in Tokyo
 ```
