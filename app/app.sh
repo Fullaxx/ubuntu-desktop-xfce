@@ -4,6 +4,11 @@
 # Remove leftovers from a previous run (docker restart)
 source /app/cleanup.sh
 
+# System services: sudo rules, X11 socket dirs, system dbus
 source /app/imagestart.sh
 
+# Desktop user: the account, HOME and its shell umask
+source /app/user.sh
+
+# VNC server: its config and passwords, then run it as the desktop user
 source /app/tiger.sh
