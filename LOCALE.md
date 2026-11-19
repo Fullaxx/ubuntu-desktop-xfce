@@ -86,8 +86,6 @@ The same locale in `docker exec` shells too: use `LANG` instead of `LOCALE`
 
 The Xfce panel clock shows 24-hour time (`15:12`) in every locale: that's the clock's own format, which its properties can change. Its tooltip and calendar follow the locale.
 
-Japanese, Chinese, Korean, Hindi, Thai and some other languages need a font first: see [Fonts](#fonts).
-
 ### Values
 - **A UTF-8 locale from `/usr/share/i18n/SUPPORTED`**, with or without its codeset: `de_DE`, `de_DE.UTF-8` and `de_DE.utf8` are the same for the desktop; `LANG` needs its codeset for `docker exec` shells (see below). Write the codeset as `.UTF-8` or `.utf8`: `de_DE.utf-8` isn't accepted.
 - **Modifiers** come last: `sr_RS@latin`, `ca_ES@valencia`.
@@ -129,26 +127,23 @@ LOCALE='de_DE.utf-8' is not a UTF-8 locale in /usr/share/i18n/SUPPORTED; keeping
   - The entries of the Ubuntu Desktop menu section (app names).
 
 ## Fonts
-The image's fonts (DejaVu) cover Latin, Greek and Cyrillic, plus Vietnamese, Hebrew, Arabic, Persian, Armenian and Georgian.
+The image has fonts for every script its translations use:
+- **DejaVu:** Latin, Greek and Cyrillic, plus Vietnamese, Hebrew, Arabic, Persian, Armenian, Georgian and Lao.
+- **Noto CJK** (`fonts-noto-cjk`): Chinese (Simplified and Traditional), Japanese and Korean, each with its own glyph shapes, in regular and bold.
+- **Noto** (`fonts-noto-core`): Noto Sans and Noto Serif, the Indian scripts (Devanagari, Bengali, Gurmukhi, Gujarati, Tamil, Telugu, Kannada, Malayalam and more), Thai, Khmer, Burmese, Sinhala, Tibetan, Ethiopic (Amharic) and many more.
 
-Other scripts show as boxes until a font is added: Chinese, Japanese, Korean, Hindi and other Indian languages, Thai, Khmer, Burmese, Sinhala and Amharic, for example.
+The desktop's font is Noto Sans: Xfce asks for "Sans", and fontconfig prefers Noto Sans to DejaVu Sans. Terminals use DejaVu Sans Mono. Chinese, Japanese and Korean text uses that language's Noto Sans CJK, and other scripts use their own Noto or DejaVu font.
 
-| Languages | Package | Size |
-|---|---|---|
-| Chinese, Japanese, Korean | `fonts-noto-cjk` | 89 MB |
-| Hindi, Marathi, Nepali (Devanagari) | `fonts-lohit-deva` | 0.2 MB |
-| Thai, the Indian scripts, Khmer, Lao, Burmese, Sinhala, Amharic and more (not Chinese, Japanese or Korean) | `fonts-noto-core` | 42 MB |
-
-Add one from a terminal in the desktop (`apt-get` runs without a password for the desktop user):
+More fonts can be added: more weights and rarer scripts (`fonts-noto-extra`), more weights for Chinese, Japanese and Korean (`fonts-noto-cjk-extra`), or color emoji (`fonts-noto-color-emoji`). From a terminal in the desktop (`apt-get` runs without a password for the desktop user):
 ```
-sudo apt-get update && sudo apt-get install -y fonts-noto-cjk
+sudo apt-get update && sudo apt-get install -y fonts-noto-color-emoji
 ```
 Programs started afterwards use it; `xfce4-panel -r` restarts the panel and its menus. The font lasts as long as the container. To keep it, build your own image on top of this one:
 ```
 FROM ghcr.io/fullaxx/ubuntu-desktop-xfce
-RUN apt-get update && apt-get install -y fonts-noto-cjk && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y fonts-noto-color-emoji && rm -rf /var/lib/apt/lists/*
 ```
-Typing Chinese, Japanese or Korean also needs an input method, such as fcitx5, which the image doesn't include.
+Typing Chinese, Japanese or Korean needs an input method, such as fcitx5, which the image doesn't include.
 
 ## Don't
 - **`LC_ALL`:** the desktop uses it, but nothing generates its locale, so the desktop falls back to ASCII and English, with no message in `docker logs`. Use `LOCALE` or `LANG`.
@@ -163,7 +158,7 @@ Typing Chinese, Japanese or Korean also needs an input method, such as fcitx5, w
   - `app/locale.sh` takes `LOCALE`, or else `LANG`. It generates the locale if it's new (adding it to `/etc/locale.gen`), and writes it to `/etc/locale.conf` as `LANG` (`/etc/default/locale` links to that file) and to `/etc/environment` as `LC_ALL`.
 - The desktop starts through sudo, and sudo's PAM reads those two files. sudo also passes `TZ`, `LANG`, `LANGUAGE` and the `LC_` variables through from `docker run`, when their values have no `%` or `/` (`TZ` gets its own check). A value passed through wins over the files: that's why `-e LC_ALL` overrides the image's.
 - `docker exec` shells don't go through PAM: they get only `docker run`'s variables.
-- The Dockerfile generates `en_US.UTF-8` (it isn't a build argument), and keeps the translations that the Ubuntu base image leaves out.
+- The Dockerfile generates `en_US.UTF-8` (it isn't a build argument), keeps the translations that the Ubuntu base image leaves out, and installs the fonts listed under [Fonts](#fonts).
 
 ## Checking a container
 The values the start scripts didn't accept:

@@ -101,8 +101,7 @@ Set the language of menus and dialogs, and how dates, times and numbers are writ
 All the details, more examples and how it works: [LOCALE.md](LOCALE.md)
 
 Optional: Set the locale \
-Default: en_US (English, 11/19/2026, 03:12:31 PM, 1,234,567.89) \
-Chinese, Japanese, Korean, Hindi, Thai and some other languages need a font first: [LOCALE.md](LOCALE.md#fonts)
+Default: en_US (English, 11/19/2026, 03:12:31 PM, 1,234,567.89)
 ```
 -e LOCALE='en_GB'
 -e LOCALE='de_DE'
@@ -110,6 +109,9 @@ Chinese, Japanese, Korean, Hindi, Thai and some other languages need a font firs
 -e LOCALE='es_MX'
 -e LOCALE='pt_BR'
 -e LOCALE='ru_RU'
+-e LOCALE='zh_CN'
+-e LOCALE='ja_JP'
+-e LOCALE='hi_IN'
 ```
 Optional: Set the locale with LANG instead, so that `docker exec` shells use it too \
 Default: en_US.UTF-8 in the desktop, none (ASCII only) in `docker exec` shells \

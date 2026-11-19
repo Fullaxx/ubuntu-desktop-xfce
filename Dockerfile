@@ -27,6 +27,9 @@ RUN apt-get update && \
       dbus \
       dbus-x11 \
       elementary-xfce-icon-theme \
+      fonts-dejavu-core \
+      fonts-noto-cjk \
+      fonts-noto-core \
       greybird-gtk-theme \
       gtk2-engines-pixbuf \
       gvfs \
