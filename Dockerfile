@@ -10,6 +10,13 @@ ENV DEBIAN_FRONTEND="noninteractive"
 ENV WINDOWMANAGER="xfce4"
 
 # ------------------------------------------------------------------------------
+# Keep translations
+# (the Ubuntu base image's dpkg excludes leave out every package's translations; without that line,
+# the packages installed below and by the launcher scripts keep theirs, and menus and dialogs follow
+# the desktop's locale)
+RUN sed -e '\#^path-exclude=/usr/share/locale/#d' -i /etc/dpkg/dpkg.cfg.d/excludes
+
+# ------------------------------------------------------------------------------
 # Install tigervnc,xfce4,apps and clean up
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
@@ -20,6 +27,9 @@ RUN apt-get update && \
       dbus \
       dbus-x11 \
       elementary-xfce-icon-theme \
+      fonts-dejavu-core \
+      fonts-noto-cjk \
+      fonts-noto-core \
       greybird-gtk-theme \
       gtk2-engines-pixbuf \
       gvfs \
