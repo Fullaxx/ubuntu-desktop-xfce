@@ -101,7 +101,8 @@ Set the language of menus and dialogs, and how dates, times and numbers are writ
 All the details, more examples and how it works: [LOCALE.md](LOCALE.md)
 
 Optional: Set the locale \
-Default: en_US (English, 11/19/2026, 03:12:31 PM, 1,234,567.89)
+Default: en_US (English, 11/19/2026, 03:12:31 PM, 1,234,567.89) \
+Fonts for Chinese, Japanese, Korean, the Indian scripts, Thai and every other script the translations use are built in: [LOCALE.md](LOCALE.md#fonts)
 ```
 -e LOCALE='en_GB'
 -e LOCALE='de_DE'
