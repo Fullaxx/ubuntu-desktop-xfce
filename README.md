@@ -1,13 +1,31 @@
 # Ubuntu Desktop running Xfce4 in VNC
 
 ## Base Docker Image
-[Ubuntu](https://hub.docker.com/_/ubuntu) (x64)
+[Ubuntu](https://hub.docker.com/_/ubuntu) 26.04/24.04 (x64)
+
+## Branches and tags
+Each branch publishes its own tag of `ghcr.io/fullaxx/ubuntu-desktop-xfce`, rebuilt at every push:
+
+| Tag | Branch | Ubuntu | Xfce |
+| --- | --- | --- | --- |
+| `:latest` | [`master`](https://github.com/Fullaxx/ubuntu-desktop-xfce/tree/master) | 26.04 (resolute) | 4.20 |
+| `:26.04` | [`26.04`](https://github.com/Fullaxx/ubuntu-desktop-xfce/tree/26.04) | 26.04 (resolute) | 4.20 |
+| `:24.04` | [`24.04`](https://github.com/Fullaxx/ubuntu-desktop-xfce/tree/24.04) | 24.04 (noble) | 4.18 |
+
+- `:latest` tracks 26.04: changes are made on the `26.04` branch and reach `master` through pull requests.
+- `24.04` gets the changes that apply to Ubuntu 24.04. Its README uses `:24.04` in every example.
+- Every build is also tagged `<branch>-<short commit>`, such as `:24.04-1ae62ad`. These tags never move.
+- The examples below use `:latest`. Everything in this README works the same with `:26.04` or `:24.04`.
 
 ## Get the image or build it locally
 ```
 docker pull ghcr.io/fullaxx/ubuntu-desktop-xfce
+docker pull ghcr.io/fullaxx/ubuntu-desktop-xfce:26.04
+docker pull ghcr.io/fullaxx/ubuntu-desktop-xfce:24.04
 
-docker build -t="ghcr.io/fullaxx/ubuntu-desktop-xfce" github.com/Fullaxx/ubuntu-desktop-xfce
+docker build -t="ghcr.io/fullaxx/ubuntu-desktop-xfce" https://github.com/Fullaxx/ubuntu-desktop-xfce.git
+docker build -t="ghcr.io/fullaxx/ubuntu-desktop-xfce:26.04" https://github.com/Fullaxx/ubuntu-desktop-xfce.git#26.04
+docker build -t="ghcr.io/fullaxx/ubuntu-desktop-xfce:24.04" https://github.com/Fullaxx/ubuntu-desktop-xfce.git#24.04
 ```
 
 ## VNC Options
