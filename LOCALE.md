@@ -119,7 +119,7 @@ LOCALE='de_DE.utf-8' is not a UTF-8 locale in /usr/share/i18n/SUPPORTED; keeping
 - Nothing checks the value: a misspelled code gives English, with no message in `docker logs`.
 
 ## What gets translated
-- **Xfce:** the panel, the menus, the settings dialogs, Thunar, the terminal and the rest of Xfce, in 183 languages. The image keeps every package's translations (Ubuntu's base image leaves them out); they add about 53 MB.
+- **Xfce:** the panel, the menus, the settings dialogs, Thunar, the terminal and the rest of Xfce, in 181 languages. The image keeps every package's translations (Ubuntu's base image leaves them out); they add about 50 MB.
 - **Apps installed later** with `apt-get` or `dpkg`, including the ones in the Applications menu's Ubuntu Desktop section, keep their translations too.
 - **What stays English:**
   - GTK's own labels, such as the file chooser and the Cut/Copy/Paste menu of text fields, and system error messages. Ubuntu ships those translations in separate language packs, which the image doesn't include.
@@ -140,7 +140,7 @@ sudo apt-get update && sudo apt-get install -y fonts-noto-color-emoji
 ```
 Programs started afterwards use it; `xfce4-panel -r` restarts the panel and its menus. The font lasts as long as the container. To keep it, build your own image on top of this one:
 ```
-FROM ghcr.io/fullaxx/ubuntu-desktop-xfce
+FROM ghcr.io/fullaxx/ubuntu-desktop-xfce:24.04
 RUN apt-get update && apt-get install -y fonts-noto-color-emoji && rm -rf /var/lib/apt/lists/*
 ```
 Typing Chinese, Japanese or Korean needs an input method, such as fcitx5, which the image doesn't include.
@@ -154,7 +154,7 @@ Typing Chinese, Japanese or Korean needs an input method, such as fcitx5, which 
 
 ## How it works
 - At every start, before the desktop, two scripts run as root:
-  - `app/timezone.sh` points `/etc/localtime` at the zone named by `TZ`.
+  - `app/timezone.sh` points `/etc/localtime` at the zone named by `TZ`, and writes the zone's name to `/etc/timezone`.
   - `app/locale.sh` takes `LOCALE`, or else `LANG`. It generates the locale if it's new (adding it to `/etc/locale.gen`), and writes it to `/etc/locale.conf` as `LANG` (`/etc/default/locale` links to that file) and to `/etc/environment` as `LC_ALL`.
 - The desktop starts through sudo, and sudo's PAM reads those two files. sudo also passes `TZ`, `LANG`, `LANGUAGE` and the `LC_` variables through from `docker run`, when their values have no `%` or `/` (`TZ` gets its own check). A value passed through wins over the files: that's why `-e LC_ALL` overrides the image's.
 - `docker exec` shells don't go through PAM: they get only `docker run`'s variables.

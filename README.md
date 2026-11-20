@@ -1,13 +1,16 @@
 # Ubuntu Desktop running Xfce4 in VNC
 
+**This is the `24.04` branch:** Ubuntu 24.04 (noble) with Xfce 4.18, published as `ghcr.io/fullaxx/ubuntu-desktop-xfce:24.04`. \
+It gets the changes that apply to 24.04. For the latest release (Ubuntu 26.04), see the `master` branch (`:latest`).
+
 ## Base Docker Image
-[Ubuntu](https://hub.docker.com/_/ubuntu) (x64)
+[Ubuntu](https://hub.docker.com/_/ubuntu) 24.04 (x64)
 
 ## Get the image or build it locally
 ```
-docker pull ghcr.io/fullaxx/ubuntu-desktop-xfce
+docker pull ghcr.io/fullaxx/ubuntu-desktop-xfce:24.04
 
-docker build -t="ghcr.io/fullaxx/ubuntu-desktop-xfce" github.com/Fullaxx/ubuntu-desktop-xfce
+docker build -t="ghcr.io/fullaxx/ubuntu-desktop-xfce:24.04" github.com/Fullaxx/ubuntu-desktop-xfce#24.04
 ```
 
 ## VNC Options
@@ -60,7 +63,7 @@ Default: 0022 for root, 0002 for a non-root user whose group has the same name
 ```
 
 ## Non-root users
-Ubuntu 24.04 and later images (this one is 26.04) already contain a user named `ubuntu` with UID and GID 1000.
+Ubuntu 24.04 and later images (this one is 24.04) already contain a user named `ubuntu` with UID and GID 1000.
 The startup scripts were written for Ubuntu 22.04, which had no such user, so the old example
 `-e VNCUSER='guest' -e VNCUID='1000'` collided with it and the container exited.
 There are now two distinct ways to run as a non-root user, each set with `VNCUSERMAP=name/uid`
@@ -184,55 +187,55 @@ Thanks to [jlesage](https://hub.docker.com/r/jlesage/firefox/#increasing-shared-
 ## Run the image
 Run the image on localhost port 5901 with default configuration
 ```
-docker run -d -p 127.0.0.1:5901:5901 ghcr.io/fullaxx/ubuntu-desktop-xfce
+docker run -d -p 127.0.0.1:5901:5901 ghcr.io/fullaxx/ubuntu-desktop-xfce:24.04
 ```
 Run the image with Depth 16
 ```
-docker run -d -p 127.0.0.1:5901:5901 -e VNCDEPTH='16' ghcr.io/fullaxx/ubuntu-desktop-xfce
+docker run -d -p 127.0.0.1:5901:5901 -e VNCDEPTH='16' ghcr.io/fullaxx/ubuntu-desktop-xfce:24.04
 ```
 Run the image with 1920x1080 Resolution
 ```
-docker run -d -p 127.0.0.1:5901:5901 -e VNCRES='1920x1080' ghcr.io/fullaxx/ubuntu-desktop-xfce
+docker run -d -p 127.0.0.1:5901:5901 -e VNCRES='1920x1080' ghcr.io/fullaxx/ubuntu-desktop-xfce:24.04
 ```
 Run the image with Password Authentication
 ```
-docker run -d -p 127.0.0.1:5901:5901 -e VNCPASS='vncpass' ghcr.io/fullaxx/ubuntu-desktop-xfce
+docker run -d -p 127.0.0.1:5901:5901 -e VNCPASS='vncpass' ghcr.io/fullaxx/ubuntu-desktop-xfce:24.04
 ```
 Run the image with Read-Write and Read-Only password (Using R/O pass requires R/W pass)
 ```
-docker run -d -p 127.0.0.1:5901:5901 -e VNCPASS='vncpass' -e VNCPASSRO='readonly' ghcr.io/fullaxx/ubuntu-desktop-xfce
+docker run -d -p 127.0.0.1:5901:5901 -e VNCPASS='vncpass' -e VNCPASSRO='readonly' ghcr.io/fullaxx/ubuntu-desktop-xfce:24.04
 ```
 Run the image as the built-in ubuntu user account
 ```
-docker run -d -p 127.0.0.1:5901:5901 -e VNCUSERMAP='ubuntu/1000' ghcr.io/fullaxx/ubuntu-desktop-xfce
+docker run -d -p 127.0.0.1:5901:5901 -e VNCUSERMAP='ubuntu/1000' ghcr.io/fullaxx/ubuntu-desktop-xfce:24.04
 ```
 Run the image as a new non-root user account
 ```
-docker run -d -p 127.0.0.1:5901:5901 -e VNCUSERMAP='guest/1001' ghcr.io/fullaxx/ubuntu-desktop-xfce
+docker run -d -p 127.0.0.1:5901:5901 -e VNCUSERMAP='guest/1001' ghcr.io/fullaxx/ubuntu-desktop-xfce:24.04
 ```
 Run the image as a new non-root user account with custom group
 ```
-docker run -d -p 127.0.0.1:5901:5901 -e VNCUSERMAP='guest/1001' -e VNCGROUPMAP='guests/1002' ghcr.io/fullaxx/ubuntu-desktop-xfce
+docker run -d -p 127.0.0.1:5901:5901 -e VNCUSERMAP='guest/1001' -e VNCGROUPMAP='guests/1002' ghcr.io/fullaxx/ubuntu-desktop-xfce:24.04
 ```
 Run the image in Tokyo
 ```
-docker run -d -p 127.0.0.1:5901:5901 -e TZ='Asia/Tokyo' ghcr.io/fullaxx/ubuntu-desktop-xfce
+docker run -d -p 127.0.0.1:5901:5901 -e TZ='Asia/Tokyo' ghcr.io/fullaxx/ubuntu-desktop-xfce:24.04
 ```
 Run the image in Berlin, with German menus, dates and numbers
 ```
-docker run -d -p 127.0.0.1:5901:5901 -e TZ='Europe/Berlin' -e LOCALE='de_DE' ghcr.io/fullaxx/ubuntu-desktop-xfce
+docker run -d -p 127.0.0.1:5901:5901 -e TZ='Europe/Berlin' -e LOCALE='de_DE' ghcr.io/fullaxx/ubuntu-desktop-xfce:24.04
 ```
 Run the image with FUSE privileges
 ```
-docker run --device /dev/fuse --cap-add SYS_ADMIN -d -p 127.0.0.1:5901:5901 ghcr.io/fullaxx/ubuntu-desktop-xfce
+docker run --device /dev/fuse --cap-add SYS_ADMIN -d -p 127.0.0.1:5901:5901 ghcr.io/fullaxx/ubuntu-desktop-xfce:24.04
 ```
 Run the image using host networking binding tigervncserver to port 5909
 ```
-docker run -d --network=host -e VNCPORT='9' ghcr.io/fullaxx/ubuntu-desktop-xfce
+docker run -d --network=host -e VNCPORT='9' ghcr.io/fullaxx/ubuntu-desktop-xfce:24.04
 ```
 Run the image on localhost port 5901 with a decent hostname
 ```
-docker run -d -h mycagedbuntu -p 127.0.0.1:5901:5901 ghcr.io/fullaxx/ubuntu-desktop-xfce
+docker run -d -h mycagedbuntu -p 127.0.0.1:5901:5901 ghcr.io/fullaxx/ubuntu-desktop-xfce:24.04
 ```
 
 ## Connect using vncviewer or a web browser
@@ -246,7 +249,7 @@ vncviewer 127.0.0.1:5901
 Open Applications > Ubuntu Desktop (the panel menu at the top left, or right-click the desktop) to start popular applications. \
 Each entry runs one of the convenience scripts in /app/scripts, which installs its application the first time (in xterm windows), then starts it.
 
-Many more convenience scripts are available (see the list in [ubuntu-desktop](https://github.com/Fullaxx/ubuntu-desktop#using-the-openbox-desktop-environment)), though some don't support Ubuntu 26.04 yet. \
+Many more convenience scripts are available (see the list in [ubuntu-desktop](https://github.com/Fullaxx/ubuntu-desktop#using-the-openbox-desktop-environment)), though some may not install on Ubuntu 24.04. \
 Run any of them from a terminal inside the desktop
 ```
 /app/scripts/doublecmd.sh

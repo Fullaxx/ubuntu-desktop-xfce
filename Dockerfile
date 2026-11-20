@@ -1,7 +1,7 @@
 # ------------------------------------------------------------------------------
-# Base Image : Ubuntu 26.04 LTS (Resolute Raccoon)
-# Support    : Apr 2026 - May 2031
-FROM ubuntu:26.04
+# Base Image : Ubuntu 24.04 LTS (Noble Numbat)
+# Support    : Apr 2024 - May 2029
+FROM ubuntu:24.04
 LABEL author="Brett Kuskie <fullaxx@gmail.com>"
 
 # ------------------------------------------------------------------------------
@@ -20,7 +20,6 @@ RUN sed -e '\#^path-exclude=/usr/share/locale/#d' -i /etc/dpkg/dpkg.cfg.d/exclud
 # Install tigervnc,xfce4,apps and clean up
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
-      adwaita-icon-theme-legacy \
       bzip2 \
       ca-certificates \
       curl \
@@ -36,6 +35,7 @@ RUN apt-get update && \
       less \
       libasound2t64 \
       libgtk2.0-0t64 \
+      librsvg2-common \
       locales \
       nano \
       sudo \

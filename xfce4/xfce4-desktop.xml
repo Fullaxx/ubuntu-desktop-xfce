@@ -2,7 +2,7 @@
 <!--
   System-wide default backdrop for Xtigervnc's monitor (VNC-0).
   Ubuntu's xfdesktop defaults to xubuntu-wallpaper.png (package xubuntu-wallpapers,
-  not installed), so use upstream Xfce's default instead: xfce-x.svg, zoomed.
+  not installed), so use upstream Xfce's default instead: xfce-shapes.svg, zoomed.
   User settings and WALLPAPER (set_wallpaper_xfce4.sh) override these values.
 -->
 <channel name="xfce4-desktop" version="1.0">
@@ -11,7 +11,7 @@
       <property name="monitorVNC-0" type="empty">
         <property name="workspace0" type="empty">
           <property name="image-style" type="int" value="5"/>
-          <property name="last-image" type="string" value="/usr/share/backgrounds/xfce/xfce-x.svg"/>
+          <property name="last-image" type="string" value="/usr/share/backgrounds/xfce/xfce-shapes.svg"/>
         </property>
       </property>
     </property>

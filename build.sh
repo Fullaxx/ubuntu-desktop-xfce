@@ -8,4 +8,4 @@ done
 
 git pull
 
-docker build -t "ghcr.io/fullaxx/ubuntu-desktop-xfce" .
+docker build -t "ghcr.io/fullaxx/ubuntu-desktop-xfce:24.04" .
