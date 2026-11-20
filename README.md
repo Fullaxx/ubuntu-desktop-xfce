@@ -178,12 +178,6 @@ or
 --privileged
 ```
 
-## FUSE Configuration (to support AppImages)
-Set privileges to allow FUSE to work properly inside the container
-```
---device /dev/fuse --cap-add SYS_ADMIN
-```
-
 ## Privileged Mode (to support FlatPak)
 Set privileged mode to allow FlatPaks to work properly inside the container
 ```
@@ -237,10 +231,6 @@ docker run -d -p 127.0.0.1:5901:5901 -e TZ='Asia/Tokyo' ghcr.io/fullaxx/ubuntu-d
 Run the image in Berlin, with German menus, dates and numbers
 ```
 docker run -d -p 127.0.0.1:5901:5901 -e TZ='Europe/Berlin' -e LOCALE='de_DE' ghcr.io/fullaxx/ubuntu-desktop-xfce
-```
-Run the image with FUSE privileges
-```
-docker run --device /dev/fuse --cap-add SYS_ADMIN -d -p 127.0.0.1:5901:5901 ghcr.io/fullaxx/ubuntu-desktop-xfce
 ```
 Run the image using host networking binding tigervncserver to port 5909
 ```
