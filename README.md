@@ -10,7 +10,7 @@ It gets the changes that apply to 24.04. For the latest release (Ubuntu 26.04), 
 ```
 docker pull ghcr.io/fullaxx/ubuntu-desktop-xfce:24.04
 
-docker build -t="ghcr.io/fullaxx/ubuntu-desktop-xfce:24.04" https://github.com/Fullaxx/ubuntu-desktop-xfce#24.04
+docker build -t="ghcr.io/fullaxx/ubuntu-desktop-xfce:24.04" https://github.com/Fullaxx/ubuntu-desktop-xfce.git#24.04
 ```
 
 ## VNC Options
