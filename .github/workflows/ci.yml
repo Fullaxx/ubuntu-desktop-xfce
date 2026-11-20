@@ -1,12 +1,15 @@
-# Builds the image and pushes it to ghcr.io/fullaxx/ubuntu-desktop-xfce (the README's docker pull):
-# every push to master publishes :latest and :master-<short sha>. "Run workflow" in the Actions tab
-# does the same by hand. Same actions and tags as ubuntu-desktop's ci.yml.
+# Builds the image and pushes it to ghcr.io/fullaxx/ubuntu-desktop-xfce, one tag per branch:
+#   master -> :latest (the README's docker pull)   26.04 -> :26.04   24.04 -> :24.04
+# plus :<branch>-<short sha> for each build. "Run workflow" in the Actions tab does the same by hand for
+# the branch it runs on (any other branch publishes only its <branch>-<short sha>).
+# The same file is in all three branches (a push runs the ci.yml of the pushed commit), so PRs from 26.04
+# into master never change it, and 24.04 takes CI changes by cherry-pick.
 name: CI
 
 on:
   workflow_dispatch:
   push:
-    branches: [ master ]
+    branches: [ master, "26.04", "24.04" ]   # quoted, or YAML reads them as numbers
 
 jobs:
   build:
@@ -30,14 +33,17 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      # :latest from master (the default branch), plus master-<short sha> for each build
+      # :latest from master, :26.04 and :24.04 from their branches, plus <branch>-<short sha> for each build
+      # (by branch name, so :latest stays with master even if GitHub's default branch changes)
       - name: Extract Docker metadata
         id: meta
         uses: docker/metadata-action@v6
         with:
           images: ghcr.io/fullaxx/ubuntu-desktop-xfce
           tags: |
-            type=raw,value=latest,enable={{is_default_branch}}
+            type=raw,value=latest,enable=${{ github.ref == 'refs/heads/master' }}
+            type=raw,value=26.04,enable=${{ github.ref == 'refs/heads/26.04' }}
+            type=raw,value=24.04,enable=${{ github.ref == 'refs/heads/24.04' }}
             type=sha,prefix={{branch}}-
 
       # The GitHub Actions cache keeps unchanged layers between pushes
