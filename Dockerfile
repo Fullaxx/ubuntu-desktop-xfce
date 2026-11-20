@@ -72,6 +72,9 @@ RUN sed -e 's/saveLines: 1024/saveLines: 8192/' -i /etc/X11/app-defaults/XTerm
 COPY app/*.sh /app/
 COPY conf/xstartup /usr/share/ubuntu-desktop/vnc/
 COPY conf/sudo /usr/share/ubuntu-desktop/sudo
+# app/wm.sh puts it in front of /usr/bin/bwrap at startup, unless BUBBLEWRAP_WORKAROUND=0
+# (PRIVILEGES.md)
+COPY conf/bwrap /usr/share/ubuntu-desktop/
 COPY conf/bash.colors conf/color_prompt.sh /opt/bash/
 COPY scripts/*.sh /app/scripts/
 
