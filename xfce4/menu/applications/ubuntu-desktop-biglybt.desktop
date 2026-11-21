@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Network > BitTorrent (see ubuntu-desktop.menu)
+# /app/scripts/biglybt.sh installs BiglyBT on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=BiglyBT
+Comment=Installs BiglyBT on first use if needed, then starts it
+Exec=/app/scripts/biglybt.sh
+Icon=network-transmit-receive
+Terminal=false
+Categories=X-UbuntuDesktop-BitTorrent;
