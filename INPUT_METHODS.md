@@ -89,6 +89,7 @@ macOS uses Ctrl+Space itself, to switch its own input sources, so a VNC viewer o
   fcitx5 -r -d
   ```
   Like anything installed that way, it lasts as long as the container; a new container gets it from `INPUT_METHOD` instead.
+- **If you quit fcitx5** (Exit, in its icon's menu), `fcitx5 -d` in a terminal starts it again, and so does `docker restart`.
 
 ## First start
 - The first start installs fcitx5, its plugins for GTK and Qt 6 programs, its settings program and the input methods' packages from Ubuntu's archive, so it needs the network. The desktop comes up when that's done: the install takes about 10 seconds on a fast connection, and the desktop comes up about 20 seconds after `docker run` instead of 3.
@@ -125,7 +126,8 @@ The image has fonts for all of these languages: see [LOCALE.md](LOCALE.md#fonts)
   - installs what's missing: fcitx5, and each name's package (only a first start finds anything missing);
   - checks each name against what's installed: `/usr/share/fcitx5/inputmethod/<name>.conf`, or m17n's `.mim` file;
   - writes the desktop user's `~/.config/fcitx5/profile` (plain letters first, then the names) and `~/.config/fcitx5/conf/xcb.conf`, each only if it isn't there yet, so changes made in Fcitx 5 Configuration last;
-  - puts fcitx5's own `org.fcitx.Fcitx5.desktop` in `/etc/xdg/autostart`, so the desktop session starts fcitx5. Ubuntu's fcitx5 package doesn't start it by itself: its `im-config` does that from `/etc/X11/Xsession.d`, which a VNC session doesn't run.
+  - moves fcitx5's own `org.fcitx.Fcitx5.desktop` from the menu to `/etc/xdg/autostart`, so the desktop session starts fcitx5. Ubuntu's fcitx5 package doesn't start it by itself: its `im-config` does that from `/etc/X11/Xsession.d`, which a VNC session doesn't run. In the menu, "Fcitx 5" only started a second fcitx5, which quits at once because one is already running;
+  - removes two menu entries from fcitx5's packages that can't do anything here: the Wayland launcher, which is for KDE Plasma on Wayland, and Fcitx 5 Migration Wizard, which imports Fcitx 4 settings. An upgrade of those packages brings them back until the next start.
 - When that autostart entry exists, the session's start script (`xstartup`) sets `GTK_IM_MODULE`, `QT_IM_MODULE`, `XMODIFIERS`, `SDL_IM_MODULE` and `GLFW_IM_MODULE`. Programs started in the desktop then use fcitx5: GTK and Qt programs through fcitx5's plugins and the session's D-Bus, xterm and Java programs through XIM.
 - `xcb.conf` turns off fcitx5's "Allow Overriding System XKB Settings". The VNC server translates the client's keys itself, and fcitx5 would otherwise load its own keyboard layout into it.
 

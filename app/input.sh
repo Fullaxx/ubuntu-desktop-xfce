@@ -126,8 +126,17 @@ if [ -n "${INPUT_METHOD}" ]; then
       echo "Allow Overriding System XKB Settings=False" > "${HOME}/.config/fcitx5/conf/xcb.conf"
     fi
     # Start fcitx5 with the session: Ubuntu's package has no autostart entry of its own (im-config
-    # starts it from Xsession, which a VNC session doesn't run)
-    install -m 0644 /usr/share/applications/org.fcitx.Fcitx5.desktop "${IMAUTOSTART}"
+    # starts it from Xsession, which a VNC session doesn't run). Its menu entry, "Fcitx 5", moves
+    # there: in the menu it only started a second fcitx5, which quits at once because one is already
+    # running (a restart finds the file moved; an upgrade that brings it back gets it moved again)
+    if [ -f /usr/share/applications/org.fcitx.Fcitx5.desktop ]; then
+      mv -f /usr/share/applications/org.fcitx.Fcitx5.desktop "${IMAUTOSTART}"
+    fi
+    # Menu entries from fcitx5's packages that can't do anything here: the Wayland launcher is for
+    # KDE Plasma on Wayland, and the Migration Wizard imports Fcitx 4 settings. Removed rather than
+    # hidden, because ubuntu-desktop's fbpanel menu lists every copy of an entry
+    rm -f /usr/share/applications/fcitx5-wayland-launcher.desktop \
+          /usr/share/applications/org.fcitx.fcitx5-migrator.desktop
     echo "Input method: ${IMNAMES} (fcitx5; Ctrl+Space switches)"
   else
     rm -f "${IMAUTOSTART}"
