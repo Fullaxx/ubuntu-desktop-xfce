@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Network > Browsers (see ubuntu-desktop.menu)
+# /app/scripts/opera.sh installs Opera on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=Opera
+Comment=Installs Opera on first use if needed, then starts it
+Exec=/app/scripts/opera.sh
+Icon=web-browser
+Terminal=false
+Categories=X-UbuntuDesktop-Browsers;
