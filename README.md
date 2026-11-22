@@ -145,6 +145,24 @@ Default: the locale's language
 ```
 Use these instead of LC_ALL, LC_TIME and the other LC_ variables, which don't work here: [LOCALE.md](LOCALE.md#dont)
 
+## Input Method Configuration
+Type Chinese, Japanese, Korean, Vietnamese, the Indian scripts and more: Ctrl+Space switches between plain letters and the input method \
+All the details, the names for each language and how it works: [INPUT_METHODS.md](INPUT_METHODS.md)
+
+Optional: The input methods, by fcitx5's names, separated by commas \
+Default: None (with it, the container's first start installs fcitx5 and those input methods: about 10 seconds, and 90 to 190 MB)
+```
+-e INPUT_METHOD='pinyin'
+-e INPUT_METHOD='anthy'
+-e INPUT_METHOD='hangul'
+-e INPUT_METHOD='unikey'
+-e INPUT_METHOD='pinyin,anthy,hangul'
+```
+Mozc (Japanese) needs a non-root desktop user, and is left out on a root desktop: [INPUT_METHODS.md](INPUT_METHODS.md#mozc-and-root)
+```
+-e INPUT_METHOD='mozc' -e VNCUSERMAP='ubuntu/1000'
+```
+
 ## Wallpaper Configuration
 Set a background image for the Xfce desktop \
 Default: None \

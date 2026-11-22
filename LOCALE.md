@@ -7,6 +7,8 @@ Three things about the desktop can be set when the container starts, with `docke
 
 All of them are optional. They're read every time the container starts, but a container keeps the values it was created with: to change one, start a new container (`docker restart` won't pick up a change). In docker compose they go under `environment:`.
 
+Typing languages that need an input method, such as Chinese, Japanese and Korean, is set up on its own, with `INPUT_METHOD`: [INPUT_METHODS.md](INPUT_METHODS.md).
+
 "The desktop" below means the Xfce session and every program started from it, including its terminals.
 
 ## Defaults
@@ -51,6 +53,10 @@ English, with ISO dates (`2026-11-19`) and weeks starting on Monday; numbers are
 The same locale in `docker exec` shells too: use `LANG` instead of `LOCALE`
 ```
 -e LANG='fr_FR.UTF-8'
+```
+Chinese, typing with Pinyin ([INPUT_METHODS.md](INPUT_METHODS.md))
+```
+-e LOCALE='zh_CN' -e INPUT_METHOD='pinyin'
 ```
 
 ## Time zone (TZ)
@@ -143,7 +149,7 @@ Programs started afterwards use it; `xfce4-panel -r` restarts the panel and its 
 FROM ghcr.io/fullaxx/ubuntu-desktop-xfce
 RUN apt-get update && apt-get install -y fonts-noto-color-emoji && rm -rf /var/lib/apt/lists/*
 ```
-Typing Chinese, Japanese or Korean needs an input method, such as fcitx5, which the image doesn't include.
+Typing Chinese, Japanese, Korean and more needs an input method: [INPUT_METHODS.md](INPUT_METHODS.md).
 
 ## Don't
 - **`LC_ALL`:** the desktop uses it, but nothing generates its locale, so the desktop falls back to ASCII and English, with no message in `docker logs`. Use `LOCALE` or `LANG`.
