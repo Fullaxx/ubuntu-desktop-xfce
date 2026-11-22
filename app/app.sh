@@ -19,6 +19,9 @@ source /app/user.sh
 # Window manager: per-user config for the image's WINDOWMANAGER
 source /app/wm.sh
 
+# Input method: fcitx5 and the engines from INPUT_METHOD (installed at the first start), if set
+source /app/input.sh
+
 # VNC server setup: its settings, xstartup and passwords, then HOME goes to the desktop user
 source /app/prepare.sh
 
