@@ -2,10 +2,11 @@
 # This script runs as root
 # Input method for typing Chinese, Japanese, Korean, Vietnamese and more, from docker run's
 # -e INPUT_METHOD: fcitx5 input method names, comma-separated (pinyin, mozc, hangul, ...; INPUT_METHODS.md).
-# Without it nothing is installed or started. The container's first start installs fcitx5 and the
-# engines that provide those names (a restart finds them installed), then writes the desktop user's
-# fcitx5 profile before fcitx5 first runs (fcitx5 drops entries it can't find and rewrites the file on
-# exit). /etc/xdg/autostart starts fcitx5 in the session; xstartup sets the variables programs read
+# Without it nothing is installed or started. The container's first start installs fcitx5, the
+# engines that provide those names and the fonts they type in, if the image lacks them (a restart
+# finds them installed), then writes the desktop user's fcitx5 profile before fcitx5 first runs
+# (fcitx5 drops entries it can't find and rewrites the file on exit). /etc/xdg/autostart starts
+# fcitx5 in the session; xstartup sets the variables programs read
 IMAUTOSTART="/etc/xdg/autostart/org.fcitx.Fcitx5.desktop"
 if [ -n "${INPUT_METHOD}" ]; then
   # fcitx5, its plugins for GTK 2/3/4 and Qt 6 programs (xterm and Java use XIM, which is built in),
@@ -63,7 +64,33 @@ if [ -n "${INPUT_METHOD}" ]; then
     done
     IMINSTALL=""
     for IMPKG in ${IMUSABLE:+${IMMISSING}}; do
-      if apt-cache show "${IMPKG}" >/dev/null 2>&1; then IMINSTALL="${IMINSTALL:+${IMINSTALL} }${IMPKG}"; fi
+      if apt-cache show "${IMPKG}" >/dev/null 2>&1; then
+        IMINSTALL="${IMINSTALL:+${IMINSTALL} }${IMPKG}"
+        # The fonts its input methods type in, if the image lacks them (ubuntu-desktop has only Latin,
+        # Greek and Cyrillic; the Xfce image has all three). Only a package that exists brings one,
+        # so a misspelled name brings none
+        case "${IMPKG}" in
+          # m17n's input methods cover many scripts, and a few type Chinese, Japanese or Korean
+          # (and Vietnamese in Han characters, Chữ Nôm)
+          fcitx5-m17n)
+            IMFONT="fonts-noto-core"
+            case " ${IMPAIRS}" in *" m17n_zh_"*|*" m17n_ja_"*|*" m17n_ko_"*|*" m17n_vi_han:"*|*" m17n_vi_nom"*) IMFONT="${IMFONT} fonts-noto-cjk" ;; esac ;;
+          # fcitx5's tables are Chinese (the CJK line below; "emoji" too, Chinese kaomoji), except
+          # these: other scripts,
+          fcitx5-table-amharic|fcitx5-table-arabic|fcitx5-table-malayalam-phonetic|fcitx5-table-tamil-remington|fcitx5-table-thai) IMFONT="fonts-noto-core" ;;
+          # Vietnamese, and the Latin letters, IPA and symbols that ubuntu-desktop's own fonts lack,
+          fcitx5-unikey|fcitx5-bamboo|fcitx5-table-viqr|fcitx5-table-compose|fcitx5-table-ipa-x-sampa|fcitx5-table-latex) IMFONT="fonts-dejavu-core" ;;
+          # and Cyrillic, which every image's own fonts cover
+          fcitx5-table-rustrad|fcitx5-table-translit|fcitx5-table-translit-ua|fcitx5-table-yawerty) IMFONT="" ;;
+          fcitx5-chinese-addons|fcitx5-chewing|fcitx5-rime|fcitx5-table-*|fcitx5-mozc|fcitx5-anthy|fcitx5-hangul) IMFONT="fonts-noto-cjk" ;;
+          *) IMFONT="" ;;
+        esac
+        for IMF in ${IMFONT}; do
+          if ! dpkg -s "${IMF}" 2>/dev/null | grep -q -x 'Status: install ok installed'; then
+            case " ${IMINSTALL} " in *" ${IMF} "*) ;; *) IMINSTALL="${IMINSTALL} ${IMF}" ;; esac
+          fi
+        done
+      fi
     done
     if [ -n "${IMINSTALL}" ]; then
       echo "Input method: installing ${IMINSTALL} (first start only)"
@@ -130,6 +157,8 @@ if [ -n "${INPUT_METHOD}" ]; then
     # there: in the menu it only started a second fcitx5, which quits at once because one is already
     # running (a restart finds the file moved; an upgrade that brings it back gets it moved again)
     if [ -f /usr/share/applications/org.fcitx.Fcitx5.desktop ]; then
+      # (ubuntu-desktop's image has no /etc/xdg/autostart until something puts an entry there)
+      mkdir -p "${IMAUTOSTART%/*}"
       mv -f /usr/share/applications/org.fcitx.Fcitx5.desktop "${IMAUTOSTART}"
     fi
     # Menu entries from fcitx5's packages that can't do anything here: the Wayland launcher is for

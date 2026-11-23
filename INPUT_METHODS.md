@@ -123,7 +123,7 @@ The image has fonts for all of these languages: see [LOCALE.md](LOCALE.md#fonts)
 ## How it works
 - At every start, before the desktop, `app/input.sh` runs as root. With `INPUT_METHOD` set, it:
   - leaves out `mozc` if the desktop runs as root (UID 0), before installing anything: Mozc's server refuses to run as root, and fcitx5 would hang waiting for it;
-  - installs what's missing: fcitx5, and each name's package (only a first start finds anything missing);
+  - installs what's missing: fcitx5, and each name's package (only a first start finds anything missing). The font each input method types in would come too, but this image has them all ([Fonts](#fonts));
   - checks each name against what's installed: `/usr/share/fcitx5/inputmethod/<name>.conf`, or m17n's `.mim` file;
   - writes the desktop user's `~/.config/fcitx5/profile` (plain letters first, then the names) and `~/.config/fcitx5/conf/xcb.conf`, each only if it isn't there yet, so changes made in Fcitx 5 Configuration last;
   - moves fcitx5's own `org.fcitx.Fcitx5.desktop` from the menu to `/etc/xdg/autostart`, so the desktop session starts fcitx5. Ubuntu's fcitx5 package doesn't start it by itself: its `im-config` does that from `/etc/X11/Xsession.d`, which a VNC session doesn't run. In the menu, "Fcitx 5" only started a second fcitx5, which quits at once because one is already running;
