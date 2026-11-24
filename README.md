@@ -11,9 +11,9 @@ Each branch publishes its own tags of `ghcr.io/fullaxx/ubuntu-desktop-xfce`, reb
 | `:latest`, `:26.04` | [`master`](https://github.com/Fullaxx/ubuntu-desktop-xfce/tree/master) | 26.04 (resolute) | 4.20 |
 | `:24.04` | [`24.04`](https://github.com/Fullaxx/ubuntu-desktop-xfce/tree/24.04) | 24.04 (noble) | 4.18 |
 
-- `:latest` tracks 26.04: every push to `master` publishes the same image as `:latest` and `:26.04`.
+- `:latest` tracks 26.04: every push to `master` publishes the same image as `:latest` and `:26.04`, and so does the monthly rebuild.
 - `24.04` gets the changes that apply to Ubuntu 24.04. Its README uses `:24.04` in every example.
-- Every build is also tagged `<branch>-<short commit>`, such as `:24.04-1ae62ad`. These tags never move.
+- Every push to `master` or `24.04` is also tagged `<branch>-<short commit>`, such as `:24.04-1ae62ad`. These tags don't move to later commits (a manual CI run of the same commit pushes its tag again).
 - The examples below use `:latest`. Everything in this README works the same with `:26.04` or `:24.04`.
 
 ## Get the image or build it locally
