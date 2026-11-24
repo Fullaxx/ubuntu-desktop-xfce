@@ -22,4 +22,8 @@ if [ -s /tmp/ubuntu-desktop-notice.txt ]; then
 fi
 
 /usr/bin/vncconfig -nowin &
-exec /usr/bin/startxfce4
+# Run the session on a D-Bus session bus of its own, as a desktop login does (a VNC session gets none).
+# Xfce 4.20's xinitrc asks for a bus before xfce4-session starts one, which made a second, idle bus that
+# the display advertised. With this one, the session's programs and anything that finds the bus through
+# the display share one bus, and it ends with the session
+exec dbus-launch --exit-with-session /usr/bin/startxfce4
