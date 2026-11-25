@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > AV (see ubuntu-desktop.menu)
+# /app/scripts/shotcut.sh installs Shotcut on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=Shotcut
+Comment=Installs Shotcut on first use if needed, then starts it
+Exec=/app/scripts/shotcut.sh
+Icon=video-x-generic
+Terminal=false
+Categories=X-UbuntuDesktop-AV;
