@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Editors (see ubuntu-desktop.menu)
+# /app/scripts/thonny.sh installs Thonny on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=Thonny
+Comment=Installs Thonny on first use if needed, then starts it
+Exec=/app/scripts/thonny.sh
+Icon=accessories-text-editor
+Terminal=false
+Categories=X-UbuntuDesktop-Editors;

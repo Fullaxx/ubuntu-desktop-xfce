@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Editors (see ubuntu-desktop.menu)
+# /app/scripts/xfw.sh installs Xfe on first use (xterm windows), then starts its text editor, Xfw
+[Desktop Entry]
+Type=Application
+Name=Xfw
+Comment=Installs Xfe on first use if needed, then starts its text editor, Xfw
+Exec=/app/scripts/xfw.sh
+Icon=accessories-text-editor
+Terminal=false
+Categories=X-UbuntuDesktop-Editors;
