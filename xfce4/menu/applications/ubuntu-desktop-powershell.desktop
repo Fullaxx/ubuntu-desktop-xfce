@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Terminals (see ubuntu-desktop.menu)
+# /app/scripts/powershell.sh installs PowerShell on first use (xterm windows), then starts it in an xterm window
+[Desktop Entry]
+Type=Application
+Name=PowerShell
+Comment=Installs PowerShell on first use if needed, then starts it in an xterm window
+Exec=/app/scripts/powershell.sh
+Icon=utilities-terminal
+Terminal=false
+Categories=X-UbuntuDesktop-Terminals;

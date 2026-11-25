@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Terminals (see ubuntu-desktop.menu)
+# /app/scripts/sakura.sh installs Sakura on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=Sakura
+Comment=Installs Sakura on first use if needed, then starts it
+Exec=/app/scripts/sakura.sh
+Icon=utilities-terminal
+Terminal=false
+Categories=X-UbuntuDesktop-Terminals;

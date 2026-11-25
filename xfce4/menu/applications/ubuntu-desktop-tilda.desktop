@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Terminals (see ubuntu-desktop.menu)
+# /app/scripts/tilda.sh installs Tilda on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=Tilda
+Comment=Installs Tilda on first use if needed, then starts it
+Exec=/app/scripts/tilda.sh
+Icon=utilities-terminal
+Terminal=false
+Categories=X-UbuntuDesktop-Terminals;
