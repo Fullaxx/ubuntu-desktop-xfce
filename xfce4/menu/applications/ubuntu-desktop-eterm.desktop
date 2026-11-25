@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Terminals (see ubuntu-desktop.menu)
+# /app/scripts/eterm.sh installs Eterm on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=Eterm
+Comment=Installs Eterm on first use if needed, then starts it
+Exec=/app/scripts/eterm.sh
+Icon=utilities-terminal
+Terminal=false
+Categories=X-UbuntuDesktop-Terminals;
