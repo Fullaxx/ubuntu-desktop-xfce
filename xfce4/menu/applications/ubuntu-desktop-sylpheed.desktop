@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Network > Mail (see ubuntu-desktop.menu)
+# /app/scripts/sylpheed.sh installs Sylpheed on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=Sylpheed
+Comment=Installs Sylpheed on first use if needed, then starts it
+Exec=/app/scripts/sylpheed.sh
+Icon=internet-mail
+Terminal=false
+Categories=X-UbuntuDesktop-Mail;

@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Network > Mail (see ubuntu-desktop.menu)
+# /app/scripts/claws-mail.sh installs Claws Mail on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=Claws Mail
+Comment=Installs Claws Mail on first use if needed, then starts it
+Exec=/app/scripts/claws-mail.sh
+Icon=internet-mail
+Terminal=false
+Categories=X-UbuntuDesktop-Mail;
