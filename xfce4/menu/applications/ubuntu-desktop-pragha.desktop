@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Music (see ubuntu-desktop.menu)
+# /app/scripts/pragha.sh installs Pragha on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=Pragha
+Comment=Installs Pragha on first use if needed, then starts it
+Exec=/app/scripts/pragha.sh
+Icon=audio-x-generic
+Terminal=false
+Categories=X-UbuntuDesktop-Music;

@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Music (see ubuntu-desktop.menu)
+# /app/scripts/clementine.sh installs Clementine on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=Clementine
+Comment=Installs Clementine on first use if needed, then starts it
+Exec=/app/scripts/clementine.sh
+Icon=audio-x-generic
+Terminal=false
+Categories=X-UbuntuDesktop-Music;

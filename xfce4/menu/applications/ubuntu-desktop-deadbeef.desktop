@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Music (see ubuntu-desktop.menu)
+# /app/scripts/deadbeef.sh installs DeaDBeeF on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=DeaDBeeF
+Comment=Installs DeaDBeeF on first use if needed, then starts it
+Exec=/app/scripts/deadbeef.sh
+Icon=audio-x-generic
+Terminal=false
+Categories=X-UbuntuDesktop-Music;
