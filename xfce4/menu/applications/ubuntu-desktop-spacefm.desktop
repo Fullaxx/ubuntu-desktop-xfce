@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > File Managers (see ubuntu-desktop.menu)
+# /app/scripts/spacefm.sh installs SpaceFM on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=SpaceFM
+Comment=Installs SpaceFM on first use if needed, then starts it
+Exec=/app/scripts/spacefm.sh
+Icon=system-file-manager
+Terminal=false
+Categories=X-UbuntuDesktop-FileManagers;

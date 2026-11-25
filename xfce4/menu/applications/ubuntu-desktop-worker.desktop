@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > File Managers (see ubuntu-desktop.menu)
+# /app/scripts/worker.sh installs Worker on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=Worker
+Comment=Installs Worker on first use if needed, then starts it
+Exec=/app/scripts/worker.sh
+Icon=system-file-manager
+Terminal=false
+Categories=X-UbuntuDesktop-FileManagers;

@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > File Managers (see ubuntu-desktop.menu)
+# /app/scripts/4pane.sh installs 4Pane on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=4Pane
+Comment=Installs 4Pane on first use if needed, then starts it
+Exec=/app/scripts/4pane.sh
+Icon=system-file-manager
+Terminal=false
+Categories=X-UbuntuDesktop-FileManagers;

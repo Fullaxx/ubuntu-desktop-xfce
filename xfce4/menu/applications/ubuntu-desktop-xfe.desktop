@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > File Managers (see ubuntu-desktop.menu)
+# /app/scripts/xfe.sh installs Xfe on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=Xfe
+Comment=Installs Xfe on first use if needed, then starts it
+Exec=/app/scripts/xfe.sh
+Icon=system-file-manager
+Terminal=false
+Categories=X-UbuntuDesktop-FileManagers;
