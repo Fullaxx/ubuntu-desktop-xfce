@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Utilities (see ubuntu-desktop.menu)
+# /app/scripts/gnome-calculator.sh installs GNOME Calculator on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=GNOME Calculator
+Comment=Installs GNOME Calculator on first use if needed, then starts it
+Exec=/app/scripts/gnome-calculator.sh
+Icon=applications-utilities
+Terminal=false
+Categories=X-UbuntuDesktop-Utilities;
