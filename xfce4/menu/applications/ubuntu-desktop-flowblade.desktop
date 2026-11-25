@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > AV (see ubuntu-desktop.menu)
+# /app/scripts/flowblade.sh installs Flowblade on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=Flowblade
+Comment=Installs Flowblade on first use if needed, then starts it
+Exec=/app/scripts/flowblade.sh
+Icon=video-x-generic
+Terminal=false
+Categories=X-UbuntuDesktop-AV;

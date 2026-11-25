@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > AV (see ubuntu-desktop.menu)
+# /app/scripts/guvcview.sh installs guvcview on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=guvcview
+Comment=Installs guvcview on first use if needed, then starts it
+Exec=/app/scripts/guvcview.sh
+Icon=video-x-generic
+Terminal=false
+Categories=X-UbuntuDesktop-AV;
