@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Music (see ubuntu-desktop.menu)
+# /app/scripts/gpodder.sh installs gPodder on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=gPodder
+Comment=Installs gPodder on first use if needed, then starts it
+Exec=/app/scripts/gpodder.sh
+Icon=audio-x-generic
+Terminal=false
+Categories=X-UbuntuDesktop-Music;

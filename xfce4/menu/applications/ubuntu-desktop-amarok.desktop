@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Music (see ubuntu-desktop.menu)
+# /app/scripts/amarok.sh installs Amarok on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=Amarok
+Comment=Installs Amarok on first use if needed, then starts it
+Exec=/app/scripts/amarok.sh
+Icon=audio-x-generic
+Terminal=false
+Categories=X-UbuntuDesktop-Music;

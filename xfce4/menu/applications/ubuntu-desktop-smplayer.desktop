@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Music (see ubuntu-desktop.menu)
+# /app/scripts/smplayer.sh installs SMPlayer on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=SMPlayer
+Comment=Installs SMPlayer on first use if needed, then starts it
+Exec=/app/scripts/smplayer.sh
+Icon=audio-x-generic
+Terminal=false
+Categories=X-UbuntuDesktop-Music;

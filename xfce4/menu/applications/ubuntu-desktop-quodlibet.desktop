@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Music (see ubuntu-desktop.menu)
+# /app/scripts/quodlibet.sh installs Quod Libet on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=Quod Libet
+Comment=Installs Quod Libet on first use if needed, then starts it
+Exec=/app/scripts/quodlibet.sh
+Icon=audio-x-generic
+Terminal=false
+Categories=X-UbuntuDesktop-Music;
