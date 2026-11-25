@@ -63,6 +63,7 @@
         <Menuname>browsers</Menuname>
         <Menuname>bittorrent</Menuname>
         <Menuname>chat</Menuname>
+        <Menuname>mail</Menuname>
         <Menuname>networktools</Menuname>
         <Merge type="all"/>
       </Layout>
@@ -83,6 +84,13 @@
         <Name>chat</Name>
         <Directory>ubuntu-desktop-chat.directory</Directory>
         <Include><Category>X-UbuntuDesktop-Chat</Category></Include>
+      </Menu>
+
+      <!-- The mail clients, after Chat as in the Openbox menu -->
+      <Menu>
+        <Name>mail</Name>
+        <Directory>ubuntu-desktop-mail.directory</Directory>
+        <Include><Category>X-UbuntuDesktop-Mail</Category></Include>
       </Menu>
 
       <Menu>

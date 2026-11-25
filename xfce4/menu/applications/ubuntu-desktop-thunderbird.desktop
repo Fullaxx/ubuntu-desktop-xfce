@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Network > Mail (see ubuntu-desktop.menu)
+# /app/scripts/thunderbird.sh installs Thunderbird on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=Thunderbird
+Comment=Installs Thunderbird on first use if needed, then starts it
+Exec=/app/scripts/thunderbird.sh
+Icon=internet-mail
+Terminal=false
+Categories=X-UbuntuDesktop-Mail;
