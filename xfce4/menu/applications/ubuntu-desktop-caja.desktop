@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > File Managers (see ubuntu-desktop.menu)
+# /app/scripts/caja.sh installs Caja on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=Caja
+Comment=Installs Caja on first use if needed, then starts it
+Exec=/app/scripts/caja.sh
+Icon=system-file-manager
+Terminal=false
+Categories=X-UbuntuDesktop-FileManagers;

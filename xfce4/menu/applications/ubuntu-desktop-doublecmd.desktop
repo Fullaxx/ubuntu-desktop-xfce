@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > File Managers (see ubuntu-desktop.menu)
+# /app/scripts/doublecmd.sh installs Double Commander on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=Double Commander
+Comment=Installs Double Commander on first use if needed, then starts it
+Exec=/app/scripts/doublecmd.sh
+Icon=system-file-manager
+Terminal=false
+Categories=X-UbuntuDesktop-FileManagers;
