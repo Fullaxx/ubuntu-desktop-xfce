@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Network > Browsers (see ubuntu-desktop.menu)
+# /app/scripts/edge_dev.sh installs Microsoft Edge Dev on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=Microsoft Edge Dev
+Comment=Installs Microsoft Edge Dev on first use if needed, then starts it
+Exec=/app/scripts/edge_dev.sh
+Icon=web-browser
+Terminal=false
+Categories=X-UbuntuDesktop-Browsers;

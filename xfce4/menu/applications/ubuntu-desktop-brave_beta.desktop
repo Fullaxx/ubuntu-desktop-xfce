@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Network > Browsers (see ubuntu-desktop.menu)
+# /app/scripts/brave_beta.sh installs Brave Beta on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=Brave Beta
+Comment=Installs Brave Beta on first use if needed, then starts it
+Exec=/app/scripts/brave_beta.sh
+Icon=web-browser
+Terminal=false
+Categories=X-UbuntuDesktop-Browsers;
