@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Network > Chat (see ubuntu-desktop.menu)
+# /app/scripts/polari.sh installs Polari on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=Polari
+Comment=Installs Polari on first use if needed, then starts it
+Exec=/app/scripts/polari.sh
+Icon=im-message-new
+Terminal=false
+Categories=X-UbuntuDesktop-Chat;
