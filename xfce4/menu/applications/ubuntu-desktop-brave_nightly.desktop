@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Network > Browsers (see ubuntu-desktop.menu)
+# /app/scripts/brave_nightly.sh installs Brave Nightly on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=Brave Nightly
+Comment=Installs Brave Nightly on first use if needed, then starts it
+Exec=/app/scripts/brave_nightly.sh
+Icon=web-browser
+Terminal=false
+Categories=X-UbuntuDesktop-Browsers;
