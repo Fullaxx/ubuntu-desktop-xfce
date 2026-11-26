@@ -1,10 +1,10 @@
-# Applications > Ubuntu Desktop > Misc (see ubuntu-desktop.menu)
+# Applications > Ubuntu Desktop > Network > Chat (see ubuntu-desktop.menu)
 # /app/scripts/slack.sh installs Slack on first use (xterm windows), then starts it
 [Desktop Entry]
 Type=Application
 Name=Slack
 Comment=Installs Slack on first use if needed, then starts it
 Exec=/app/scripts/slack.sh
-Icon=applications-other
+Icon=im-message-new
 Terminal=false
-Categories=X-UbuntuDesktop-Misc;
+Categories=X-UbuntuDesktop-Chat;
