@@ -256,6 +256,57 @@ vncviewer 127.0.0.1:5901
 Open Applications > Ubuntu Desktop (the panel menu at the top left, or right-click the desktop) to start popular applications. \
 Each entry runs one of the convenience scripts in /app/scripts, which installs its application the first time (in xterm windows), then starts it.
 
+Terminals:
+* [Eterm](https://sourceforge.net/projects/eterm/), [kitty](https://github.com/kovidgoyal/kitty), [sakura](http://www.pleyades.net/david/projects/sakura), [terminology](https://www.enlightenment.org/about-terminology.md), [terminator](https://gnome-terminator.org/), [tilix](https://gnunn1.github.io/tilix-web/), [tilda](https://github.com/lanoxx/tilda), [powershell](https://github.com/PowerShell/PowerShell)
+
+Office:
+* [libreoffice](https://www.libreoffice.org/)
+
+Editors:
+* [gedit](https://wiki.gnome.org/Apps/Gedit), gvim, [bluefish](http://bluefish.openoffice.nl/), [geany](https://www.geany.org/), [thonny](https://thonny.org/), [SublimeText](https://www.sublimetext.com/), [vscode](https://github.com/microsoft/vscode), xfw
+
+Browsers:
+* [chrome](https://www.google.com/chrome/), [chromium](https://www.chromium.org/), [vivaldi](https://vivaldi.com/), [firefox](https://www.mozilla.org/en-US/firefox/), [opera](https://www.opera.com/), [brave](https://brave.com/), [brave beta](https://brave.com/download-beta/), [brave nightly](https://brave.com/download-nightly/), [edge](https://www.microsoft.com/en-us/edge/download), [edge beta](https://www.microsoftedgeinsider.com/en-us/download/), [edge dev](https://www.microsoftedgeinsider.com/en-us/download/dev), [tor browser](https://www.torproject.org/)
+
+BitTorrent:
+* [BiglyBT](https://www.biglybt.com/), [deluge](https://deluge-torrent.org/), [qbittorrent](https://www.qbittorrent.org/), [ktorrent](https://apps.kde.org/ktorrent/), transmission-gtk
+
+Chat:
+* [discord](https://discord.com/), [hexchat](https://hexchat.github.io/), [loqui](https://launchpad.net/loqui), [konversation](https://konversation.kde.org/), [kvirc](https://www.kvirc.net/), [pidgin](https://pidgin.im/), [polari](https://wiki.gnome.org/Apps/Polari), [quassel](https://quassel-irc.org/), [signal](https://signal.org/), [slack](https://slack.com/), [srain](https://srain.silverrainz.me/)
+
+Mail:
+* [claws-mail](https://www.claws-mail.org/), [sylpheed](https://sylpheed.sraoss.jp/en/), [thunderbird](https://www.thunderbird.net/)
+
+Cloud Storage:
+* [dropbox](https://www.dropbox.com/), [mega](https://mega.io/desktop), [nextcloud](https://nextcloud.com/), [owncloud](https://owncloud.com/), [rclone browser](https://github.com/kapitainsky/RcloneBrowser), [seafile](https://www.seafile.com/)
+
+Network Tools:
+* [filezilla](https://filezilla-project.org/), [gftp](https://github.com/masneyb/gftp), [zenmap](https://nmap.org/zenmap/)
+
+File Managers:
+* [4pane](http://www.4pane.co.uk/), [caja](https://github.com/mate-desktop/caja), [doublecommander](https://doublecmd.sourceforge.io/), [krusader](https://krusader.org/), [nemo](https://github.com/linuxmint/nemo), [pcmanfm](https://wiki.lxde.org/en/PCManFM), [spacefm](https://ignorantguru.github.io/spacefm/), [xfe](http://roland65.free.fr/xfe/), [worker](http://www.boomerangsworld.de/cms/worker/)
+
+Games:
+* [Steam](https://store.steampowered.com/)
+
+Music:
+* [amarok](https://amarok.kde.org/), [audacious](https://audacious-media-player.org/), [clementine](https://www.clementine-player.org/), [deadbeef](https://deadbeef.sourceforge.io/), [gpodder](https://gpodder.github.io/), [pragha](https://pragha-music-player.github.io/), [quodlibet](https://quodlibet.readthedocs.io/en/latest/), [rhythmbox](https://wiki.gnome.org/Apps/Rhythmbox), [smplayer](https://www.smplayer.info/), [strawberry](https://www.strawberrymusicplayer.org/)
+
+Graphics:
+* [gimp](https://www.gimp.org/), [inkscape](https://inkscape.org/), [krita](https://krita.org/), [blender](https://www.blender.org/)
+
+AV:
+* [guvcview](https://guvcview.sourceforge.net/), [kdenlive](https://kdenlive.org/), [winff](https://github.com/WinFF/winff), [flowblade](https://jliljebl.github.io/flowblade/), [shotcut](https://www.shotcut.org/), [gopchop](https://gopchop.org/), [openshot](https://www.openshot.org/)
+
+Calculators:
+* [galculator](http://galculator.mnim.org/), [gnome-calculator](https://apps.gnome.org/Calculator/), [kcalc](https://apps.kde.org/kcalc/), [mate-calc](https://github.com/mate-desktop/mate-calc), [qalculate](https://qalculate.github.io/), [speedcrunch](https://speedcrunch.org/)
+
+Passwords:
+* [keepassxc](https://keepassxc.org/)
+
+Archive Managers:
+* [engrampa](https://github.com/mate-desktop/engrampa)
+
 Many more convenience scripts are available (see the list in [ubuntu-desktop](https://github.com/Fullaxx/ubuntu-desktop#using-the-openbox-desktop-environment)), though some may not install on Ubuntu 24.04. \
 Run any of them from a terminal inside the desktop
 ```
