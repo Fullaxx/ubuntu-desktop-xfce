@@ -130,10 +130,34 @@
       <Include><Category>X-UbuntuDesktop-AV</Category></Include>
     </Menu>
 
+    <!-- Utilities, grouped by what they provide, as in the Openbox menu -->
     <Menu>
       <Name>utilities</Name>
       <Directory>ubuntu-desktop-utilities.directory</Directory>
-      <Include><Category>X-UbuntuDesktop-Utilities</Category></Include>
+      <Layout>
+        <Menuname>calculators</Menuname>
+        <Menuname>passwords</Menuname>
+        <Menuname>archivemanagers</Menuname>
+        <Merge type="all"/>
+      </Layout>
+
+      <Menu>
+        <Name>calculators</Name>
+        <Directory>ubuntu-desktop-calculators.directory</Directory>
+        <Include><Category>X-UbuntuDesktop-Calculators</Category></Include>
+      </Menu>
+
+      <Menu>
+        <Name>passwords</Name>
+        <Directory>ubuntu-desktop-passwords.directory</Directory>
+        <Include><Category>X-UbuntuDesktop-Passwords</Category></Include>
+      </Menu>
+
+      <Menu>
+        <Name>archivemanagers</Name>
+        <Directory>ubuntu-desktop-archivemanagers.directory</Directory>
+        <Include><Category>X-UbuntuDesktop-ArchiveManagers</Category></Include>
+      </Menu>
     </Menu>
 
     <Menu>
