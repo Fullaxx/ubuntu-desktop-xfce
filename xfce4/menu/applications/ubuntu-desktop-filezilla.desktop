@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Network > Tools (see ubuntu-desktop.menu)
+# /app/scripts/filezilla.sh installs FileZilla on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=FileZilla
+Comment=Installs FileZilla on first use if needed, then starts it
+Exec=/app/scripts/filezilla.sh
+Icon=network-workgroup
+Terminal=false
+Categories=X-UbuntuDesktop-NetworkTools;
