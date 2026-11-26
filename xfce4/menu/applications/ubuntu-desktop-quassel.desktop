@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Network > Chat (see ubuntu-desktop.menu)
+# /app/scripts/quassel.sh installs Quassel IRC on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=Quassel IRC
+Comment=Installs Quassel IRC on first use if needed, then starts it
+Exec=/app/scripts/quassel.sh
+Icon=im-message-new
+Terminal=false
+Categories=X-UbuntuDesktop-Chat;

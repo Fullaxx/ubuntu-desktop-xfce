@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Network > Chat (see ubuntu-desktop.menu)
+# /app/scripts/kvirc.sh installs KVIrc on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=KVIrc
+Comment=Installs KVIrc on first use if needed, then starts it
+Exec=/app/scripts/kvirc.sh
+Icon=im-message-new
+Terminal=false
+Categories=X-UbuntuDesktop-Chat;
