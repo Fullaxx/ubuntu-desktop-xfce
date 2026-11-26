@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Network > Cloud Storage (see ubuntu-desktop.menu)
+# /app/scripts/owncloud.sh installs ownCloud on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=ownCloud
+Comment=Installs ownCloud on first use if needed, then starts it
+Exec=/app/scripts/owncloud.sh
+Icon=folder-remote
+Terminal=false
+Categories=X-UbuntuDesktop-CloudStorage;

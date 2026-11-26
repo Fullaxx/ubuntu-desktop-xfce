@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Network > Cloud Storage (see ubuntu-desktop.menu)
+# /app/scripts/rclone-browser.sh installs Rclone Browser on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=Rclone Browser
+Comment=Installs Rclone Browser on first use if needed, then starts it
+Exec=/app/scripts/rclone-browser.sh
+Icon=folder-remote
+Terminal=false
+Categories=X-UbuntuDesktop-CloudStorage;

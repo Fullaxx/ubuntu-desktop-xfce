@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Network > Cloud Storage (see ubuntu-desktop.menu)
+# /app/scripts/seafile.sh installs Seafile on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=Seafile
+Comment=Installs Seafile on first use if needed, then starts it
+Exec=/app/scripts/seafile.sh
+Icon=folder-remote
+Terminal=false
+Categories=X-UbuntuDesktop-CloudStorage;
