@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Network > Tools (see ubuntu-desktop.menu)
+# /app/scripts/zenmap.sh installs Zenmap on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=Zenmap
+Comment=Installs Zenmap on first use if needed, then starts it
+Exec=/app/scripts/zenmap.sh
+Icon=network-workgroup
+Terminal=false
+Categories=X-UbuntuDesktop-NetworkTools;
