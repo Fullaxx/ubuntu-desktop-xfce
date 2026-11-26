@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Network > Cloud Storage (see ubuntu-desktop.menu)
+# /app/scripts/nextcloud.sh installs Nextcloud on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=Nextcloud
+Comment=Installs Nextcloud on first use if needed, then starts it
+Exec=/app/scripts/nextcloud.sh
+Icon=folder-remote
+Terminal=false
+Categories=X-UbuntuDesktop-CloudStorage;

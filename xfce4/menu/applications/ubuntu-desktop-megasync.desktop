@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Network > Cloud Storage (see ubuntu-desktop.menu)
+# /app/scripts/megasync.sh installs MEGA on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=MEGA
+Comment=Installs MEGA on first use if needed, then starts it
+Exec=/app/scripts/megasync.sh
+Icon=folder-remote
+Terminal=false
+Categories=X-UbuntuDesktop-CloudStorage;

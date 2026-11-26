@@ -64,6 +64,7 @@
         <Menuname>bittorrent</Menuname>
         <Menuname>chat</Menuname>
         <Menuname>mail</Menuname>
+        <Menuname>cloudstorage</Menuname>
         <Menuname>networktools</Menuname>
         <Merge type="all"/>
       </Layout>
@@ -91,6 +92,13 @@
         <Name>mail</Name>
         <Directory>ubuntu-desktop-mail.directory</Directory>
         <Include><Category>X-UbuntuDesktop-Mail</Category></Include>
+      </Menu>
+
+      <!-- The cloud storage clients, after Mail as in the Openbox menu -->
+      <Menu>
+        <Name>cloudstorage</Name>
+        <Directory>ubuntu-desktop-cloudstorage.directory</Directory>
+        <Include><Category>X-UbuntuDesktop-CloudStorage</Category></Include>
       </Menu>
 
       <Menu>
