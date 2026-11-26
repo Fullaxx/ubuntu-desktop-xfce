@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Utilities > Archive Managers (see ubuntu-desktop.menu)
+# /app/scripts/engrampa.sh installs Engrampa on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=Engrampa
+Comment=Installs Engrampa on first use if needed, then starts it
+Exec=/app/scripts/engrampa.sh
+Icon=package-x-generic
+Terminal=false
+Categories=X-UbuntuDesktop-ArchiveManagers;

@@ -1,10 +1,10 @@
-# Applications > Ubuntu Desktop > Utilities (see ubuntu-desktop.menu)
+# Applications > Ubuntu Desktop > Utilities > Calculators (see ubuntu-desktop.menu)
 # /app/scripts/galculator.sh installs Galculator on first use (xterm windows), then starts it
 [Desktop Entry]
 Type=Application
 Name=Galculator
 Comment=Installs Galculator on first use if needed, then starts it
 Exec=/app/scripts/galculator.sh
-Icon=applications-utilities
+Icon=accessories-calculator
 Terminal=false
-Categories=X-UbuntuDesktop-Utilities;
+Categories=X-UbuntuDesktop-Calculators;

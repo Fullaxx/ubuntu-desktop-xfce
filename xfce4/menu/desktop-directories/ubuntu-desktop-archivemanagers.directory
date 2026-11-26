@@ -1,0 +1,5 @@
+# Applications > Ubuntu Desktop > Utilities > Archive Managers: the submenu's name and icon (see ubuntu-desktop.menu)
+[Desktop Entry]
+Type=Directory
+Name=Archive Managers
+Icon=package-x-generic

@@ -1,10 +1,10 @@
-# Applications > Ubuntu Desktop > Utilities (see ubuntu-desktop.menu)
+# Applications > Ubuntu Desktop > Utilities > Calculators (see ubuntu-desktop.menu)
 # /app/scripts/kcalc.sh installs KCalc on first use (xterm windows), then starts it
 [Desktop Entry]
 Type=Application
 Name=KCalc
 Comment=Installs KCalc on first use if needed, then starts it
 Exec=/app/scripts/kcalc.sh
-Icon=applications-utilities
+Icon=accessories-calculator
 Terminal=false
-Categories=X-UbuntuDesktop-Utilities;
+Categories=X-UbuntuDesktop-Calculators;
