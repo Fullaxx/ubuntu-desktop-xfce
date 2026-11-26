@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Network > Chat (see ubuntu-desktop.menu)
+# /app/scripts/konversation.sh installs Konversation on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=Konversation
+Comment=Installs Konversation on first use if needed, then starts it
+Exec=/app/scripts/konversation.sh
+Icon=im-message-new
+Terminal=false
+Categories=X-UbuntuDesktop-Chat;

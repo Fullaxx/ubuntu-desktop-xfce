@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Network > Chat (see ubuntu-desktop.menu)
+# /app/scripts/loqui.sh installs Loqui on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=Loqui
+Comment=Installs Loqui on first use if needed, then starts it
+Exec=/app/scripts/loqui.sh
+Icon=im-message-new
+Terminal=false
+Categories=X-UbuntuDesktop-Chat;
