@@ -1,7 +1,7 @@
 # Ubuntu Desktop running Xfce4 in VNC
 
-**This is the `24.04` branch:** Ubuntu 24.04 (noble) with Xfce 4.18, published as `ghcr.io/fullaxx/ubuntu-desktop-xfce:24.04`. \
-It gets the changes that apply to 24.04. For the latest release (Ubuntu 26.04: `:latest` and `:26.04`), see the `master` branch and its [branches and tags](https://github.com/Fullaxx/ubuntu-desktop-xfce#branches-and-tags).
+**This is the `24.04` branch:** Ubuntu 24.04 (noble) with Xfce 4.18, published as `ghcr.io/fullaxx/ubuntu-desktop-xfce:24.04` and `:noble`. \
+It gets the changes that apply to 24.04. For the latest release (Ubuntu 26.04: `:latest`, `:26.04` and `:resolute`), see the `master` branch and its [branches and tags](https://github.com/Fullaxx/ubuntu-desktop-xfce#branches-and-tags).
 
 ## Base Docker Image
 [Ubuntu](https://hub.docker.com/_/ubuntu) 24.04 (x64)
