@@ -20,8 +20,8 @@ if [ -n "${INPUT_METHOD}" ]; then
       *[!A-Za-z0-9_-]*) echo "INPUT_METHOD: '${IM}' is not an input method name; INPUT_METHODS.md lists them" >&2; continue ;;
       pinyin|shuangpin|wbx|wbpy|cangjie|erbi|qxm|wanfeng|zrm) IMPKG="fcitx5-chinese-addons" ;;
       # Mozc's server (mozc_server) refuses to run as root (UID 0), and fcitx5 then hangs waiting for it,
-      # for minutes, so typing stops in the whole desktop: a root desktop (no VNCUSERMAP, app/user.sh)
-      # goes without mozc. anthy, the other Japanese input method, works as root
+      # for minutes, so typing stops in the whole desktop: a root desktop (no VNCUSERMAP,
+      # app/useracct.sh) goes without mozc. anthy, the other Japanese input method, works as root
       mozc)
         if [ "$(id -u "${USER:-root}")" = "0" ]; then
           echo "INPUT_METHOD: 'mozc' doesn't work when the desktop runs as root, so it's left out; use anthy, or a non-root desktop user (VNCUSERMAP); see INPUT_METHODS.md" >&2

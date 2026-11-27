@@ -16,7 +16,7 @@ if [ -f /etc/xdg/autostart/org.fcitx.Fcitx5.desktop ]; then
   export XMODIFIERS=@im=fcitx GTK_IM_MODULE=fcitx QT_IM_MODULE=fcitx SDL_IM_MODULE=fcitx GLFW_IM_MODULE=ibus
 fi
 
-# Show a startup notice left by app/user.sh (e.g. replaced variables)
+# Show a startup notice left by app/useracct.sh (e.g. replaced variables)
 if [ -s /tmp/ubuntu-desktop-notice.txt ]; then
   xmessage -center -file /tmp/ubuntu-desktop-notice.txt &
 fi
