@@ -257,7 +257,7 @@ Open Applications > Ubuntu Desktop (the panel menu at the top left, or right-cli
 Each entry runs one of the convenience scripts in /app/scripts, which installs its application the first time (in xterm windows), then starts it.
 
 Terminals:
-* [Eterm](https://sourceforge.net/projects/eterm/), [kitty](https://github.com/kovidgoyal/kitty), [sakura](http://www.pleyades.net/david/projects/sakura), [terminology](https://www.enlightenment.org/about-terminology.md), [terminator](https://gnome-terminator.org/), [tilix](https://gnunn1.github.io/tilix-web/), [tilda](https://github.com/lanoxx/tilda), [powershell](https://github.com/PowerShell/PowerShell)
+* [Eterm](https://sourceforge.net/projects/eterm/), [kitty](https://github.com/kovidgoyal/kitty), [sakura](http://www.pleyades.net/david/projects/sakura), [terminology](https://www.enlightenment.org/about-terminology.md), [terminator](https://gnome-terminator.org/), [tilix](https://gnunn1.github.io/tilix-web/), [tilda](https://github.com/lanoxx/tilda), [guake](https://github.com/Guake/guake), [powershell](https://github.com/PowerShell/PowerShell)
 
 Office:
 * [libreoffice](https://www.libreoffice.org/)

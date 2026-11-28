@@ -1,0 +1,10 @@
+# Applications > Ubuntu Desktop > Terminals (see ubuntu-desktop.menu)
+# /app/scripts/guake.sh installs Guake on first use (xterm windows), then starts it
+[Desktop Entry]
+Type=Application
+Name=Guake
+Comment=Installs Guake on first use if needed, then starts it
+Exec=/app/scripts/guake.sh
+Icon=utilities-terminal
+Terminal=false
+Categories=X-UbuntuDesktop-Terminals;
